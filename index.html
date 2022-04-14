@@ -15,14 +15,21 @@
 
 <body>
     <h1>The Unofficial Albion Online Solo Scorecard</h1>
-        <p>Inspired by <a id="blackboatwitch"href="https://www.twitch.tv/blackboa">Blackboa</a></p>
+        <p>Inspired by <a id="blackboatwitch"href="https://www.twitch.tv/blackboa" target="_blank">Blackboa</a></p>
+        <p>If you want to read the original blog post visit <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a></p>
         <div>
-            <p id="resource">Total: 0</p>
-        </div>
-        <div>
+            <p id="resource">Plentiful Resource Nodes: 0</p>
+            <p id="upgradedMobs">Upgrade Mobs Killed: 0</p>
+            <p id="deaths">Deaths: 0</p>
             
-            <button onclick="resNodeEarned()">Resource Node</button>
         </div>
+        <div>
+            <button onclick="resNodeEarned()">Resource Node</button>
+            <button onclick="upgradedMobsKilled()">Killed Upgraded Mob</button>
+            <button onclick="youDie()">DEAD</button>
+        </div>
+        <h2 id="achievements">Total Achievements: 0</h2>
+        <h2 id="kpidRatio">KPI to Death Ratio: 0</h2>
 
 </body>
 </html>

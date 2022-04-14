@@ -7,15 +7,30 @@ var escapedGank = 0 // button
 var deathCount = 0 // button
 var mightProgression = 0 // Starting Might vs Ending Might, user entered
 var factionPoints = 0 // Starting FP vs Ending FP, user entered
-var kpiDeathRatio = 0 // Calculated from total achievements divided by deaths
-// kill me
+var totalAchievements = 0
+var kpiDeathRatio // Calculated from total achievements divided by deaths
+
 function resNodeEarned() {
     resourceNode++
-    console.log(resourceNode);
+    totalAchievements++
+    console.log("Resources " + resourceNode);
+    console.log("Total Achievements " + totalAchievements)
     document.getElementById("resource").innerHTML = "Plentiful Resource Nodes: " + resourceNode;
+    document.getElementById("achievements").innerHTML = "Total Achievements " + totalAchievements;
+    document.getElementById("kpidRatio").innerHTML = "KPI to Death Ratio: " + kpiDeathRatio;
 }
 function upgradedMobsKilled() {
-    resourceNode++
-    console.log(upgradedMobs);
+    upgradedMobs++
+    totalAchievements++
+    //console.log(upgradedMobs);
+    console.log("Total Achievements " + totalAchievements)
     document.getElementById("upgradedMobs").innerHTML = "Upgraded Mobs Killed: " + upgradedMobs;
+    document.getElementById("achievements").innerHTML = "Total Achievements " + totalAchievements;
+    document.getElementById("kpidRatio").innerHTML = "KPI to Death Ratio: " + kpiDeathRatio;
+}
+function youDie() {
+    deathCount++
+    //console.log("Deaths " + deathCount);
+    document.getElementById("deaths").innerHTML = "Deaths: " + deathCount;
+    document.getElementById("kpidRatio").innerHTML = "KPI to Death Ratio: " + kpiDeathRatio;
 }
