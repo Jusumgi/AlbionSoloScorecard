@@ -12,6 +12,11 @@ Currently this webapp has full functionality and could be used by the community,
 
 **To try it out, download the ZIP at the green Code button, then open index.html**
 
-The first few features I'm thinking to work on.. 1.  Make it look good. 2. Make it more Mobile friendly
+Some features I may get around to..
+1.  Make it look good. 
+2.  Make it more Mobile friendly
+3.  Make a reset button, which will help with the next goal
+4.  Create personal best tracking
+5.  Create personal historical stats
 
 Thank you for checking this out!
