@@ -10,6 +10,8 @@ I am new to coding and found this to be a great first project.
 
 Currently this webapp has full functionality and could be used by the community, however, it doesn't look pretty. That will come later.
 
+To try it out, download the ZIP at the green Code button, then open index.html
+
 The first few features I'm thinking to work on.. 1.  Make it look good. 2. Make it more Mobile friendly
 
 Thank you for checking this out!
