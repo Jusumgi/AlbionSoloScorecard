@@ -17,15 +17,23 @@
     <h1>The Unofficial Albion Online Solo Scorecard</h1>
         <p>Inspired by <a id="blackboatwitch"href="https://www.twitch.tv/blackboa" target="_blank">Blackboa</a></p>
         <p>If you want to read the original blog post visit <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a></p>
-        <div>
-            <p id="resource">Plentiful Resource Nodes: 0</p>
-            <p id="upgradedMobs">Upgraded Mobs Killed: 0</p>
-            <p id="deaths">Deaths: 0</p>
+        <div id="container">
+            <div id="resource">Plentiful Resource Nodes: 0</div>
+            <div id="upgradedMobs">Upgraded Mobs Killed: 0</div>
+            <div id="pk">Kills: 0</div>
+            <div id="lootbank">Banked Loot: 0</div>
+            <div id="chests">World Chests: 0</div>
+            <div id="gankesc">Ganks Escaped: 0</div>
+            <div id="deaths">Deaths: 0</div>
             
         </div>
-        <div>
+        <div id="btns">
             <button onclick="resNodeEarned()">Resource Node</button>
-            <button onclick="upgradedMobsKilled()">Killed Upgraded Mob</button>
+            <button onclick="upgradedMobsKilled()">Mob Kill</button>
+            <button onclick="playerKill()">Player Kill</button>
+            <button onclick="bankLoot()">Banked</button>
+            <button onclick="worldChest()">Chest</button>
+            <button onclick="gankEscape()">Escaped</button>
             <button onclick="youDie()">DEAD</button>
         </div>
         <h2 id="achievements">Total Achievements: 0</h2>

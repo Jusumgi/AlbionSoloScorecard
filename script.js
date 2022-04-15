@@ -13,8 +13,8 @@ var kpiDeathRatio // Calculated from total achievements divided by deaths
 function resNodeEarned() {
     resourceNode++
     totalAchievements++
-    console.log("Resources " + resourceNode);
-    console.log("Total Achievements " + totalAchievements)
+    //console.log("Resources " + resourceNode);
+    //console.log("Total Achievements " + totalAchievements)
     document.getElementById("resource").innerHTML = "Plentiful Resource Nodes: " + resourceNode;
     document.getElementById("achievements").innerHTML = "Total Achievements " + totalAchievements;
     ach2deathRatio()
@@ -23,15 +23,51 @@ function resNodeEarned() {
 function upgradedMobsKilled() {
     upgradedMobs++
     totalAchievements++
-    console.log("Upgraded Mobs: " + upgradedMobs);
-    console.log("Total Achievements " + totalAchievements)
+    //console.log("Upgraded Mobs: " + upgradedMobs);
+    //console.log("Total Achievements " + totalAchievements)
     document.getElementById("upgradedMobs").innerHTML = "Upgraded Mobs Killed: " + upgradedMobs;
+    document.getElementById("achievements").innerHTML = "Total Achievements " + totalAchievements;
+    ach2deathRatio()
+}
+function playerKill() {
+    killedPlayers++
+    totalAchievements++
+    //console.log("Players Killed: " + killedPlayers);
+    //console.log("Total Achievements " + totalAchievements)
+    document.getElementById("pk").innerHTML = "Kills: " + killedPlayers;
+    document.getElementById("achievements").innerHTML = "Total Achievements " + totalAchievements;
+    ach2deathRatio()
+}
+function bankLoot() {
+    bankedLoot++
+    totalAchievements++
+    //console.log("Upgraded Mobs: " + upgradedMobs);
+    //console.log("Total Achievements " + totalAchievements)
+    document.getElementById("lootbank").innerHTML = "Banked Loot: " + bankedLoot;
+    document.getElementById("achievements").innerHTML = "Total Achievements " + totalAchievements;
+    ach2deathRatio()
+}
+function worldChest() {
+    openWorldChests++
+    totalAchievements++
+    //console.log("Open World Chests: " + upgradedMobs);
+    //console.log("Total Achievements " + totalAchievements)
+    document.getElementById("chests").innerHTML = "World Chests: " + openWorldChests;
+    document.getElementById("achievements").innerHTML = "Total Achievements " + totalAchievements;
+    ach2deathRatio()
+}
+function gankEscape() {
+    escapedGank++
+    totalAchievements++
+    //console.log("Ganks Escaped: " + upgradedMobs);
+    //console.log("Total Achievements " + totalAchievements)
+    document.getElementById("gankesc").innerHTML = "Ganks Escaped: " + escapedGank;
     document.getElementById("achievements").innerHTML = "Total Achievements " + totalAchievements;
     ach2deathRatio()
 }
 function youDie() {
     deathCount++
-    console.log("Deaths: " + deathCount);
+    //console.log("Deaths: " + deathCount);
     document.getElementById("deaths").innerHTML = "Deaths: " + deathCount;
     ach2deathRatio()
 }
@@ -39,12 +75,12 @@ function youDie() {
 function ach2deathRatio() {
     if (deathCount == 0) {
         document.getElementById("kpidRatio").innerHTML = "KPI to Death Ratio: " + totalAchievements;
-        console.log("IF IS TRUE");
+        //console.log("IF IS TRUE");
     } else {
         kpiDeathRatio = totalAchievements / deathCount;
         document.getElementById("kpidRatio").innerHTML = "KPI to Death Ratio: " + kpiDeathRatio;
-        console.log("IF IS FALSE");
+        //console.log("IF IS FALSE");
     }
 
-    console.log(kpiDeathRatio)
+    //console.log(kpiDeathRatio)
 }
