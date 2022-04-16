@@ -14,9 +14,10 @@ Currently this webapp has full functionality and could be used by the community,
 
 Some features I may get around to..
 1.  Make it look good. 
-2.  Make it more Mobile friendly
-3.  Make a reset button, which will help with the next goal
-4.  Create personal best tracking
-5.  Create personal historical stats
+2.  Create hotkeys and make use of Electron to make it a desktop app
+3.  Make it more Mobile friendly
+4.  Make a reset button, which will help with the next goal
+5.  Create personal best tracking
+6.  Create personal historical stats
 
 Thank you for checking this out!
