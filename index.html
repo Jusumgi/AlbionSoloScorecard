@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <title>The Unofficial Albion Online Solo Scoreboard</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="style.css">
 <style>
 </style>
 
@@ -14,9 +14,9 @@
 
 
 <body>
-    <h1>The Unofficial Albion Online Solo Scorecard</h1>
-        <p>Inspired by <a id="blackboatwitch" href="https://www.twitch.tv/blackboa" target="_blank">Blackboa</a></p>
-        <p>If you want to read the original blog post visit <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a></p>
+    <h1 id="title">The Unofficial Albion Online Solo Scorecard</h1>
+        <p id="twitch">Inspired by <a id="blackboatwitch" href="https://www.twitch.tv/blackboa" target="_blank">Blackboa</a></p>
+        <p id="blog">If you want to read the original blog post visit <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a></p>
         <div id="container">
             <div id="resource">Plentiful Resource Nodes: 0</div>
             <div id="upgradedMobs">Upgraded Mobs Killed: 0</div>
@@ -35,9 +35,12 @@
             <button onclick="gankEscape()">Escaped</button>
             <button onclick="youDie()">DEAD</button>
         </div>
-        <h2 id="achievements">Total KPI: 0</h2>
-        <h2 id="deaths">Deaths: 0</h2>
-        <h2 id="kpidRatio">KPI to Death Ratio: 0</h2>
+        <div>
+            <h2 id="achievements">Total KPI: 0</h2>
+            <h2 id="deaths">Deaths: 0</h2>
+            <h2 id="kpidRatio">KPI to Death Ratio: 0</h2>
+        </div>
+
 
 </body>
 </html>
