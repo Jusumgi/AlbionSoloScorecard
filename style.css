@@ -3,10 +3,14 @@ html{
 }
 
 body {
-    margin-left: auto;
+    margin-left: 20%;
     margin-right: auto;
     width: 40em;
 }
+header {
+    background-color: aquamarine;
+}
+
 .inner {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -15,19 +19,32 @@ body {
 .container {
     background-color: lightblue;
     display: grid;
-    grid-template-columns: 75px 75px 75px;
-    grid-template-rows: 75px 75px;
-    justify-content: space-evenly;
+    grid-template-columns: 225px 75px;
+    grid-template-rows: 75px 75px 75px;
     justify-items: center;
-    align-content: space-evenly;
     align-items: center;
     padding: 10px;
 }
+.kpi-text {
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.kpi-int {
+    font-size: 30px;
+}
+
+.ratio-text {
+    text-decoration: underline;
+}
+.ratio-int {
+    font-size: 30px;
+}
 
 .btns {
-    background-color: red;
+    background-color: rgb(255, 208, 0);
     display: grid;
-    grid-template-columns: 75px 75px 75px;
+    grid-template-columns: 100px 100px 100px;
     padding: 10px;
 }
 #deadbutton {
@@ -39,15 +56,7 @@ body {
 .ratio-container {
     background-color: green;
     display: grid;
+    grid-template-columns: 250px;
     align-items: center;
     justify-items: center;
-}
-#achievements {
-    text-decoration: underline;
-}
-#deaths {
-    text-decoration: underline;
-}
-#kpidRatio {
-    text-decoration: underline;
 }
