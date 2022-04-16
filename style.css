@@ -1,0 +1,53 @@
+html{
+    background-color: beige;
+}
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em;
+}
+.inner {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+}
+.container {
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: 75px 75px 75px;
+    grid-template-rows: 75px 75px;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+
+.btns {
+    background-color: red;
+    display: grid;
+    grid-template-columns: 75px 75px 75px;
+    padding: 10px;
+}
+#deadbutton {
+    color:blueviolet;
+    align-content: center;
+    justify-content: center;
+    
+}
+.ratio-container {
+    background-color: green;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+#achievements {
+    text-decoration: underline;
+}
+#deaths {
+    text-decoration: underline;
+}
+#kpidRatio {
+    text-decoration: underline;
+}
