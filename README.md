@@ -10,13 +10,16 @@ I am new to coding and found this to be a great first project.
 
 Currently this webapp has full functionality and could be used by the community, however, it doesn't look pretty. That will come later.
 
-**To try it out, download the ZIP at the green Code button, then open index.html**
+**To try it out, download the ZIP at the green Code button, EXTRACT THE ZIP (very important) then open index.html**
 
 Some features I may get around to..
 1.  Make it look good. 
-2.  Make it more Mobile friendly
-3.  Make a reset button, which will help with the next goal
-4.  Create personal best tracking
-5.  Create personal historical stats
+2.  Add the Might and Faction Points tracker
+3.  Create hotkeys and make use of Electron to make it a desktop app
+4.  Add info bubbles for each KPI to help guide what events they cover
+5.  Make it more Mobile friendly
+6.  Make a reset button, which will help with the next goal
+7.  Create personal best tracking
+8.  Create personal historical stats
 
 Thank you for checking this out!
