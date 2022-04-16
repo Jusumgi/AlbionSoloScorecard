@@ -10,7 +10,7 @@ I am new to coding and found this to be a great first project.
 
 Currently this webapp has full functionality and could be used by the community, however, it doesn't look pretty. That will come later.
 
-**To try it out, download the ZIP at the green Code button, then open index.html**
+**To try it out, download the ZIP at the green Code button, EXTRACT THE ZIP (very important) then open index.html**
 
 Some features I may get around to..
 1.  Make it look good. 
