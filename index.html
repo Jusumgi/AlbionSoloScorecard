@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<title>The Unofficial Albion Online Solo Scoreboard</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="style.css">
-<style>
-</style>
-
-
-<script src="script.js">
-
-</script>
-<header>
-    <h1 class="header" id="title">The Unofficial Albion Online Solo Scorecard</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>The Unofficial Albion Online Solo Scoreboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="header" id="title">The Unofficial Albion Online Solo Scorecard</h1>
         <p class="header" id="twitch">Inspired by <a id="blackboatwitch" href="https://www.twitch.tv/blackboa" target="_blank">Blackboa</a></p>
         <p class="header" id="github">Created by <a id="cladgithub" href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank">Clad Vesto</a></p>
         <p class="header" id="blog">If you want to read the original blog post visit <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a></p>
-</header>
-
-<body>
-    <div class="inner" target="_self">
+    </header>
+    <div class="inner">
         <div class="container">
             <div class="kpi-text" id="resource">Plentiful Resource Nodes</div>
             <div class="kpi-int" id="resource-int">0</div>
@@ -33,7 +28,6 @@
             <div class="kpi-int" id="chests-int">0</div>
             <div class="kpi-text" id="gankesc">Ganks Escaped</div>
             <div class="kpi-int" id="gankesc-int">0</div>
-            
         </div>
         <div class="btns">
             <button onclick="resNodeEarned()">Resource Node</button>
@@ -54,6 +48,5 @@
             <h2 class="ratio-int" id="kpidRatio-int">0</h2>
         </div>
     </div>
-
 </body>
 </html>
