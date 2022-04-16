@@ -15,7 +15,7 @@ function resNodeEarned() {
     totalAchievements++
     //console.log("Resources " + resourceNode);
     //console.log("Total KPI: " + totalAchievements)
-    document.getElementById("resource").innerHTML = "Plentiful Resource Nodes: " + resourceNode;
+    document.getElementById("resource-int").innerHTML = resourceNode;
     document.getElementById("achievements-int").innerHTML = totalAchievements;
     ach2deathRatio()
 }
@@ -25,7 +25,7 @@ function upgradedMobsKilled() {
     totalAchievements++
     //console.log("Upgraded Mobs: " + upgradedMobs);
     //console.log("Total KPI: " + totalAchievements)
-    document.getElementById("upgradedMobs").innerHTML = "Upgraded Mobs Killed: " + upgradedMobs;
+    document.getElementById("upgradedMobs-int").innerHTML = upgradedMobs;
     document.getElementById("achievements-int").innerHTML = totalAchievements;
     ach2deathRatio()
 }
@@ -34,7 +34,7 @@ function playerKill() {
     totalAchievements++
     //console.log("Players Killed: " + killedPlayers);
     //console.log("Total KPI: " + totalAchievements)
-    document.getElementById("pk").innerHTML = "Kills: " + killedPlayers;
+    document.getElementById("pk-int").innerHTML = killedPlayers;
     document.getElementById("achievements-int").innerHTML = totalAchievements;
     ach2deathRatio()
 }
@@ -43,7 +43,7 @@ function bankLoot() {
     totalAchievements++
     //console.log("Upgraded Mobs: " + upgradedMobs);
     //console.log("Total KPI:  " + totalAchievements)
-    document.getElementById("lootbank").innerHTML = "Banked Loot: " + bankedLoot;
+    document.getElementById("lootbank-int").innerHTML = bankedLoot;
     document.getElementById("achievements-int").innerHTML = totalAchievements;
     ach2deathRatio()
 }
@@ -52,7 +52,7 @@ function worldChest() {
     totalAchievements++
     //console.log("Open World Chests: " + upgradedMobs);
     //console.log("Total KPI:  " + totalAchievements)
-    document.getElementById("chests").innerHTML = "World Chests: " + openWorldChests;
+    document.getElementById("chests-int").innerHTML = openWorldChests;
     document.getElementById("achievements-int").innerHTML = totalAchievements;
     ach2deathRatio()
 }
@@ -61,7 +61,7 @@ function gankEscape() {
     totalAchievements++
     //console.log("Ganks Escaped: " + upgradedMobs);
     //console.log("Total KPI:  " + totalAchievements)
-    document.getElementById("gankesc").innerHTML = "Ganks Escaped: " + escapedGank;
+    document.getElementById("gankesc-int").innerHTML = escapedGank;
     document.getElementById("achievements-int").innerHTML = totalAchievements;
     ach2deathRatio()
 }
