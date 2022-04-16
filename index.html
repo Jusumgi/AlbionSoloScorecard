@@ -11,13 +11,15 @@
 <script src="script.js">
 
 </script>
-
-
-<body>
+<header>
     <h1 id="title">The Unofficial Albion Online Solo Scorecard</h1>
         <p id="twitch">Inspired by <a id="blackboatwitch" href="https://www.twitch.tv/blackboa" target="_blank">Blackboa</a></p>
         <p id="blog">If you want to read the original blog post visit <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a></p>
-        <div id="container">
+</header>
+
+<body>
+    <div class="inner">
+        <div class="container">
             <div id="resource">Plentiful Resource Nodes: 0</div>
             <div id="upgradedMobs">Upgraded Mobs Killed: 0</div>
             <div id="pk">Kills: 0</div>
@@ -26,21 +28,22 @@
             <div id="gankesc">Ganks Escaped: 0</div>
             
         </div>
-        <div id="btns">
+        <div class="btns">
             <button onclick="resNodeEarned()">Resource Node</button>
             <button onclick="upgradedMobsKilled()">Mob Kill</button>
             <button onclick="playerKill()">Player Kill</button>
             <button onclick="bankLoot()">Banked</button>
             <button onclick="worldChest()">Chest</button>
             <button onclick="gankEscape()">Escaped</button>
-            <button onclick="youDie()">DEAD</button>
+            <div></div>
+            <button id="deadbutton" onclick="youDie()">DEAD</button>
         </div>
-        <div>
+        <div class="ratio-container">
             <h2 id="achievements">Total KPI: 0</h2>
             <h2 id="deaths">Deaths: 0</h2>
             <h2 id="kpidRatio">KPI to Death Ratio: 0</h2>
         </div>
-
+    </div>
 
 </body>
 </html>

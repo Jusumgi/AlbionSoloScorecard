@@ -1,9 +1,42 @@
-#container {
-    background-color: blue;
-
+html{
+    background-color: beige;
 }
 
-#btns {
-    background-color: red;
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20em;
+}
+.inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 200px;
+    justify-content: center;
+}
+.container {
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: 75px 75px 75px;
+    grid-template-rows: 75px 75px;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+}
 
+.btns {
+    background-color: red;
+    display: grid;
+    grid-template-columns: 75px 75px 75px;
+    padding: 10px;
+}
+#deadbutton {
+    color:blueviolet;
+    align-content: center;
+    justify-content: center;
+    
+}
+.ratio-container {
+    background-color: green;
+    display: grid;
+    padding-left: 30px;
+    text-decoration: underline;
 }
