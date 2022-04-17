@@ -10,6 +10,9 @@ body {
 header {
     background-color: rgb(190, 65, 43);
 }
+a {
+    color: #b89f2a;
+}
 
 .inner {
     display: grid;
