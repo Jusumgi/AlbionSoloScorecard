@@ -10,6 +10,8 @@ I am new to coding and found this to be a great first project.
 
 Currently this webapp has full functionality and could be used by the community, however, it doesn't look pretty. That will come later.
 
+The app currently features Local Storage and a reset button so your stats persist between reloads. I'll be working to get more long-term saving going on so you can view your past accomplishments over time.
+
 **To try it out, download the ZIP at the green Code button, EXTRACT THE ZIP (very important) then open index.html**
 
 Some features I may get around to..
