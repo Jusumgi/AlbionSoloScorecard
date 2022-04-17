@@ -1,5 +1,5 @@
 html{
-    background-color: beige;
+    background-color: rgb(80, 74, 74);
 }
 
 body {
@@ -8,7 +8,7 @@ body {
     width: 40em;
 }
 header {
-    background-color: aquamarine;
+    background-color: rgb(190, 65, 43);
 }
 
 .inner {
@@ -17,7 +17,7 @@ header {
     justify-items: center;
 }
 .container {
-    background-color: lightblue;
+    background-color: rgb(194, 96, 78);
     display: grid;
     grid-template-columns: 225px 75px;
     grid-template-rows: 75px 75px 75px;
@@ -42,7 +42,7 @@ header {
 }
 
 .btns {
-    background-color: rgb(255, 208, 0);
+    background-color: rgb(128, 43, 28);
     display: grid;
     grid-template-columns: 100px 100px 100px;
     padding: 10px;
@@ -54,7 +54,7 @@ header {
     
 }
 .ratio-container {
-    background-color: green;
+    background-color: rgb(194, 96, 78);
     display: grid;
     grid-template-columns: 250px;
     align-items: center;
