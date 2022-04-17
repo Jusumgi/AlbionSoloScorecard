@@ -47,16 +47,33 @@ header {
     grid-template-columns: 100px 100px 100px;
     padding: 10px;
 }
-#deadbutton {
-    color:blueviolet;
-    align-content: center;
-    justify-content: center;
-    
-}
+
 .ratio-container {
     background-color: rgb(194, 96, 78);
     display: grid;
     grid-template-columns: 250px;
     align-items: center;
     justify-items: center;
+}
+.button {
+    background-color: #b89f2a; /* Albion Gold */
+    border: none;
+    color: white;
+    /* padding: 15px 32px;
+     text-align: center; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+.dead-btn {
+    color:red;
+    background-color: #360a0a;
+    align-content: center;
+    justify-content: center;
+    
+}
+.reset-btn {
+    background-color: grey;
 }
