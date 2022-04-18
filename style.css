@@ -10,8 +10,16 @@ body {
 header {
     background-color: rgb(190, 65, 43);
 }
+
 a {
     color: #b89f2a;
+}
+
+input {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    background-color: rgb(128, 43, 28);
 }
 
 .inner {
