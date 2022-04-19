@@ -1,5 +1,8 @@
-const LOCAL_STORAGE_KEY = "scorecard";
-
+const LOCAL_STORAGE_KEY = [
+    "scorecard",
+    "achievement",
+    "ratio",
+];
 const defaultValues = {
     resourceNode: 0, // button
     upgradedMobs: 0, // button
@@ -7,139 +10,105 @@ const defaultValues = {
     bankedLoot: 0, // button
     openWorldChests: 0, // button
     escapedGank: 0, // button
-    deathCount: 0, // button
-    mightProgression: 0, // Starting Might vs Ending Might, user entered
-    factionPoints: 0, // Starting FP vs Ending FP, user entered
-    totalAchievements: 0,
-    kpiDeathRatio: 0, // Calculated from total achievements divided by deaths
+    deadCount: 0, // button
+    //mightProgression: 0, // Starting Might vs Ending Might, user entered
+    //factionPoints: 0, // Starting FP vs Ending FP, user entered
 };
 
 const values = { ...defaultValues };
 
-function renderAllValues() {
-    document.getElementById("resource-int").innerHTML = values.resourceNode;
-    document.getElementById("upgradedMobs-int").innerHTML = values.upgradedMobs;
-    document.getElementById("pk-int").innerHTML = values.killedPlayers;
-    document.getElementById("lootbank-int").innerHTML = values.bankedLoot;
-    document.getElementById("chests-int").innerHTML = values.openWorldChests;
-    document.getElementById("gankesc-int").innerHTML = values.escapedGank;
-    document.getElementById("deaths-int").innerHTML = values.deathCount;
-    document.getElementById("achievements-int").innerHTML = values.totalAchievements;
+let kpiDeathRatio = 0;
+    kpiDeathRatio = kpiDeathRatio.toFixed(2); // Page loads initally with floating number.
 
-    if (values.deathCount == 0) {
-        document.getElementById("kpidRatio-int").innerHTML = values.totalAchievements;
-    } else {
-        document.getElementById("kpidRatio-int").innerHTML = values.kpiDeathRatio;
+function sum( obj ) { // function that makes an array of values and adds them together.
+    var sum = 0;
+    for( var el in obj ) {
+      if( obj.hasOwnProperty( el ) ) {
+        sum += parseFloat( obj[el] );
+      }
     }
+    return sum;
+  }
+let totalAchievements = sum(values) - values.deadCount;
+
+function renderAllValues() { // updates all elements with the current values.
+    document.getElementById("resource-int").value = values.resourceNode;
+    document.getElementById("upgradedMobs-int").value = values.upgradedMobs;
+    document.getElementById("killedPlayers-int").value = values.killedPlayers;
+    document.getElementById("bankedLoot-int").value = values.bankedLoot;
+    document.getElementById("openWorldChests-int").value = values.openWorldChests;
+    document.getElementById("escapedGank-int").value = values.escapedGank;
+    document.getElementById("deadCount-int").value = values.deadCount;
+    document.getElementById("achievements-int").innerHTML = totalAchievements;
+    document.getElementById("kpidRatio-int").innerHTML = kpiDeathRatio.toFixed(2);
 }
 
-function hydrateValues() {
+function hydrateValues() { // fetches values from local storage
     try {
-        let storedData = localStorage.getItem(LOCAL_STORAGE_KEY);
-        if (!storedData) return;
-        Object.assign(values, JSON.parse(storedData));
+        let storedScorecard = localStorage.getItem("scorecard");
+        let storedAchievement = localStorage.getItem("achievement");
+        let storedRatio = localStorage.getItem("ratio");
+        console.log(storedScorecard);
+        if (!storedScorecard) return;
+        Object.assign(values, JSON.parse(storedScorecard));
+        totalAchievements = JSON.parse(storedAchievement);
+        kpiDeathRatio = JSON.parse(storedRatio);
         renderAllValues();
     } catch {}
 }
 
-function storeValues() {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(values));
+function storeValues() { // preserves values to local storage
+    localStorage.setItem("scorecard", JSON.stringify(values));
+    localStorage.setItem("achievement", JSON.stringify(totalAchievements));
+    localStorage.setItem("ratio", JSON.stringify(kpiDeathRatio));
 }
 
-// TODO: Add button to call resetValues()
-function resetValues() {
+function resetValues() { // zeroes out the scorecard
     Object.assign(values, defaultValues);
-    storeValues();
+    console.log(values);
+    totalAchievements = 0;
+    kpiDeathRatio = 0;
     renderAllValues();
+    storeValues();
 }
 
-function resNodeEarned() {
-    values.resourceNode++;
-    values.totalAchievements++;
-    //console.log("Resources " + resourceNode);
-    //console.log("Total KPI: " + totalAchievements)
-    document.getElementById("resource-int").innerHTML = values.resourceNode;
-    document.getElementById("achievements-int").innerHTML = values.totalAchievements;
+function userEnteredValue(enteredValue, propertyChanged){ // using parameters from processUserInput, makes the value changes to values object
+    console.log("value: " + propertyChanged)
+    values[propertyChanged] = enteredValue;
+    console.log(values[propertyChanged]);
+    console.log(values);
+    totalAchievements = sum(values) - values.deadCount;
     ach2deathRatio();
     storeValues();
 }
 
-function upgradedMobsKilled() {
-    values.upgradedMobs++;
-    values.totalAchievements++;
-    //console.log("Upgraded Mobs: " + upgradedMobs);
-    //console.log("Total KPI: " + totalAchievements)
-    document.getElementById("upgradedMobs-int").innerHTML = values.upgradedMobs;
-    document.getElementById("achievements-int").innerHTML = values.totalAchievements;
+function processUserInput(callback, id){ // function that collects parameters then callsback to userEnteredValue
+    console.log(id);
+    var enteredValue = parseInt(document.getElementById(id).value, 10);
+    var propertyChanged = document.getElementById(id).name;
+    callback(enteredValue, propertyChanged);
+}
+
+function buttonIncremented(btn, int){ // increments respective button based on btn parameter, then increments totalAchievement if the btn was not deadCount
+    values[btn]++;
+    document.getElementById(int).value = values[btn];
+    if (btn != 'deadCount') {
+        totalAchievements++;
+        }
     ach2deathRatio();
     storeValues();
 }
 
-function playerKill() {
-    values.killedPlayers++;
-    values.totalAchievements++;
-    //console.log("Players Killed: " + killedPlayers);
-    //console.log("Total KPI: " + totalAchievements)
-    document.getElementById("pk-int").innerHTML = values.killedPlayers;
-    document.getElementById("achievements-int").innerHTML = values.totalAchievements;
-    ach2deathRatio();
+function ach2deathRatio() { // updates the Total KPI and Ratio elements
+    if (values.deadCount == 0) {
+        document.getElementById("achievements-int").innerHTML = totalAchievements;
+        document.getElementById("kpidRatio-int").innerHTML = totalAchievements.toFixed(2);
+        } else {
+        document.getElementById("achievements-int").innerHTML = totalAchievements;
+        kpiDeathRatio = totalAchievements / values.deadCount;
+        document.getElementById("kpidRatio-int").innerHTML = kpiDeathRatio.toFixed(2);
+        }
     storeValues();
-}
-
-function bankLoot() {
-    values.bankedLoot++;
-    values.totalAchievements++;
-    //console.log("Upgraded Mobs: " + upgradedMobs);
-    //console.log("Total KPI:  " + totalAchievements)
-    document.getElementById("lootbank-int").innerHTML = values.bankedLoot;
-    document.getElementById("achievements-int").innerHTML = values.totalAchievements;
-    ach2deathRatio();
-    storeValues();
-}
-
-function worldChest() {
-    values.openWorldChests++;
-    values.totalAchievements++;
-    //console.log("Open World Chests: " + upgradedMobs);
-    //console.log("Total KPI:  " + totalAchievements)
-    document.getElementById("chests-int").innerHTML = values.openWorldChests;
-    document.getElementById("achievements-int").innerHTML = values.totalAchievements;
-    ach2deathRatio();
-    storeValues();
-}
-
-function gankEscape() {
-    values.escapedGank++;
-    values.totalAchievements++;
-    //console.log("Ganks Escaped: " + upgradedMobs);
-    //console.log("Total KPI:  " + totalAchievements)
-    document.getElementById("gankesc-int").innerHTML = values.escapedGank;
-    document.getElementById("achievements-int").innerHTML = values.totalAchievements;
-    ach2deathRatio();
-    storeValues();
-}
-
-function youDie() {
-    values.deathCount++;
-    //console.log("Deaths: " + deathCount);
-    document.getElementById("deaths-int").innerHTML = values.deathCount;
-    ach2deathRatio();
-    storeValues();
-}
-
-function ach2deathRatio() {
-    if (values.deathCount == 0) {
-        document.getElementById("kpidRatio-int").innerHTML = values.totalAchievements;
-        //console.log("IF IS TRUE");
-    } else {
-        values.kpiDeathRatio = values.totalAchievements / values.deathCount;
-        values.kpiDeathRatio = values.kpiDeathRatio.toFixed(2);
-        document.getElementById("kpidRatio-int").innerHTML = values.kpiDeathRatio;
-        //console.log("IF IS FALSE");
-    }
-    storeValues();
-
-    //console.log(kpiDeathRatio)
 }
 
 window.addEventListener('load', hydrateValues);
