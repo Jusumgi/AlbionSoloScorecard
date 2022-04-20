@@ -18,10 +18,10 @@
         </header>
         <div class="grid-might-fp flex-mightfp albion-darkred">
             <div class="flex-might">
-                <div class="might-text">Might <input name="mightStart" type="text" size="5" value="0"> - <input name="mightEnd" type="text" size="5" value="0"></div>
+                <div class="might-text">Might <input name="mightStart" id="mightStart" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'mightStart')"> - <input name="mightEnd" id="mightEnd" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'mightEnd')"></div>
             </div>
             <div class="flex-fp">
-                <div class="fp-text">Faction Points <input name="fpStart" type="text" size="5" value="0"> - <input name="fpEnd" type="text" size="5" value="0"></div>
+                <div class="fp-text">Faction Points <input name="fpStart" id="fpStart" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'fpStart')"> - <input name="fpEnd" id="fpEnd" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'fpEnd')"></div>
             </div>
         </div>
         <div class="grid-kpi-values albion-darkred">
