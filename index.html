@@ -16,6 +16,14 @@
             <p class="header" id="github-bug">See a bug? Let me know at my <a id="cladgithub" href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank">GitHub!</a></p>
             <p class="header" id="blog">If you want to read the original blog post visit <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a></p>
         </header>
+        <div class="grid-might-fp flex-mightfp albion-darkred">
+            <div class="flex-might">
+                <div class="might-text">Might <input name="mightStart" id="mightStart" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'mightStart')"> - <input name="mightEnd" id="mightEnd" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'mightEnd')"></div>
+            </div>
+            <div class="flex-fp">
+                <div class="fp-text">Faction Points <input name="fpStart" id="fpStart" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'fpStart')"> - <input name="fpEnd" id="fpEnd" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'fpEnd')"></div>
+            </div>
+        </div>
         <div class="grid-kpi-values albion-darkred">
             <div class="kpi-text" id="resource">Plentiful Resource Nodes</div>
             <div class="kpi-int"><input name="resourceNode" maxlength="3" size="1" type="text" id="resource-int" value="0" onchange="processUserInput(userEnteredValue, 'resource-int')"/></div>

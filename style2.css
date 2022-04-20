@@ -1,23 +1,10 @@
-html{
-    color: #ffd972;
-}
-input {
-    text-align: center;
-    font-size: 18px;
-    color: white;
-    background-color: rgb(128, 43, 28);
-}
-a {
-    color: #b89f2a;
-}
+
 .kpi-text {
     text-decoration: underline;
-    font-size: 20px;
     color: #ffd972;
 }
 .ratio-text {
     text-decoration: underline;
-    font-size: 20px;
     color: #ffd972;
 }
 .ratio-int {
@@ -28,12 +15,12 @@ a {
     color: red;
 }
 .btn {
-    font-size: 16px;
     border: 2px solid;
     border-radius: 10px;
     color: #fff;
     background-color: #b89f2a;
     font-weight: bold;
+    font-size: medium;
 }
 .btn:hover {
     background-color: #ffd972;
@@ -45,11 +32,11 @@ a {
 }
 .deadBtn {
     color: red;
-    font-size: 16px;
     border: 3px solid;
     border-radius: 10px;
     background-color: #360a0a;
     font-weight: bold;
+    font-size: medium;
 }
 .deadBtn:hover{
     background-color: red;
@@ -61,11 +48,11 @@ a {
 }
 .resetBtn{
     color: #ffd972;
-    font-size: 16px;
     border: 3px solid;
     border-radius: 10px;
     background-color: grey;
     font-weight: bold;
+    font-size: medium;
 }
 .resetBtn:hover{
     color: grey;
@@ -77,7 +64,7 @@ a {
 }
 .grid-body-container {
     display: grid;
-    grid-template-columns: minmax(auto, 260px) minmax(auto, 300px) minmax(auto, 240px);
+    grid-template-columns: minmax(auto, 300px) minmax(auto, 300px) minmax(auto, 240px);
     grid-gap: 5px;
     justify-content: center;
     align-content: center;
@@ -107,6 +94,14 @@ a {
     justify-items: center;
     border-radius: 10px;
 }
+.flex-mightfp{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    border: 5px;
+}
 .albion-slate {
     background-color: #504A4A;
 }
@@ -130,4 +125,41 @@ a {
 }
 .albion-orange-text {
     color: #f29921
+}
+html{
+    color: #ffd972;
+    font-size: large;
+}
+input {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    background-color: #C2604E;
+}
+a {
+    color: #b89f2a;
+}
+a:hover{
+    color:#ffd972;
+}
+@media screen and (max-width: 600px) {
+    html{
+        font-size: small;
+    }
+    input{
+        font-size: small;
+    }
+    .btn {
+        font-size: small;
+    }
+    .deadBtn {
+        font-size: small;
+    }
+    .resetBtn{
+        font-size: small;
+    }
+    .grid-button-container {
+        grid-template-columns: repeat(2, minmax(auto, 90px));
+    }
+
 }
