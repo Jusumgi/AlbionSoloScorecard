@@ -32,6 +32,14 @@ a {
     background-color: #b89f2a;
     font-weight: bold;
 }
+.btn:hover {
+    background-color: #ffd972;
+    color: grey;
+}
+.btn:active {
+    background-color: #b89f2a;
+    color: #ffd972;
+}
 .deadBtn {
     color: red;
     font-size: 16px;
@@ -39,12 +47,28 @@ a {
     background-color: #360a0a;
     font-weight: bold;
 }
+.deadBtn:hover{
+    background-color: red;
+    color: #360a0a;
+}
+.deadBtn:active{
+    background-color: #360a0a;
+    color: red;
+}
 .resetBtn{
     color: #ffd972;
     font-size: 16px;
     border: 3px solid;
     background-color: grey;
     font-weight: bold;
+}
+.resetBtn:hover{
+    color: grey;
+    background-color: #ffd972;
+}
+.resetBtn:active{
+    color: #ffd972;
+    background-color: grey;
 }
 .grid-body-container {
     display: grid;
