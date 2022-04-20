@@ -1,0 +1,133 @@
+html{
+    color: #ffd972;
+}
+input {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(128, 43, 28);
+}
+a {
+    color: #b89f2a;
+}
+.kpi-text {
+    text-decoration: underline;
+    font-size: 20px;
+    color: #ffd972;
+}
+.ratio-text {
+    text-decoration: underline;
+    font-size: 20px;
+    color: #ffd972;
+}
+.ratio-int {
+    color: #ffd972;
+    font-size:larger;
+}
+#deaths{
+    color: red;
+}
+.btn {
+    font-size: 16px;
+    border: 2px solid;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #b89f2a;
+    font-weight: bold;
+}
+.btn:hover {
+    background-color: #ffd972;
+    color: grey;
+}
+.btn:active {
+    background-color: #b89f2a;
+    color: #ffd972;
+}
+.deadBtn {
+    color: red;
+    font-size: 16px;
+    border: 3px solid;
+    border-radius: 10px;
+    background-color: #360a0a;
+    font-weight: bold;
+}
+.deadBtn:hover{
+    background-color: red;
+    color: #360a0a;
+}
+.deadBtn:active{
+    background-color: #360a0a;
+    color: red;
+}
+.resetBtn{
+    color: #ffd972;
+    font-size: 16px;
+    border: 3px solid;
+    border-radius: 10px;
+    background-color: grey;
+    font-weight: bold;
+}
+.resetBtn:hover{
+    color: grey;
+    background-color: #ffd972;
+}
+.resetBtn:active{
+    color: #ffd972;
+    background-color: grey;
+}
+.grid-body-container {
+    display: grid;
+    grid-template-columns: minmax(205px, 260px) minmax(222px, 300px) minmax(210px, 240px);
+    grid-gap: 5px;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+.grid-button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+.grid-header-container {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    justify-items: center;
+    border-radius: 10px;
+}
+.grid-kpi-values {
+    display: grid;
+    grid-auto-rows: 30px;
+    justify-items: center;
+    border-radius: 10px;
+}
+.grid-ratio-container {
+    display: grid;
+    justify-items: center;
+    border-radius: 10px;
+}
+.albion-slate {
+    background-color: #504A4A;
+}
+.albion-darkestred {
+    background-color: #360a0a;
+}
+.albion-darkred {
+    background-color: #802B1C;
+}
+.albion-salmon {
+    background-color: #C2604E;
+}
+.albion-red {
+    background-color: #BE412B;
+}
+.albion-gold {
+    background-color: #b89f2a;
+}
+.albion-bright-text {
+    background-color: #ffd972;
+}
+.albion-orange-text {
+    color: #f29921
+}
