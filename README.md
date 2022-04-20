@@ -15,7 +15,7 @@ The app currently features Local Storage and a reset button so your stats persis
 **To try it out, download the ZIP at the green Code button, EXTRACT THE ZIP (very important) then open index.html**
 
 Some features I may get around to..
-1.  ~~Make it look good. ~~
+1.  ~~Make it look good. 
 2.  Add the Might and Faction Points tracker
 3.  Create hotkeys and make use of Electron to make it a desktop app
 4.  Add info bubbles for each KPI to help guide what events they cover
