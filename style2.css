@@ -3,7 +3,7 @@ html{
 }
 input {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     background-color: rgb(128, 43, 28);
 }
@@ -17,10 +17,12 @@ a {
 }
 .ratio-text {
     text-decoration: underline;
+    font-size: 20px;
     color: #ffd972;
 }
 .ratio-int {
     color: #ffd972;
+    font-size:larger;
 }
 #deaths{
     color: red;
@@ -96,6 +98,7 @@ a {
 }
 .grid-kpi-values {
     display: grid;
+    grid-auto-rows: 30px;
     justify-items: center;
     border-radius: 10px;
 }

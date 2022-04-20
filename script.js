@@ -2,6 +2,8 @@ const LOCAL_STORAGE_KEY = [
     "scorecard",
     "achievement",
     "ratio",
+    "might",
+    "fp"
 ];
 const defaultValues = {
     resourceNode: 0, // button
