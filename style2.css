@@ -28,6 +28,7 @@ a {
 .btn {
     font-size: 16px;
     border: 2px solid;
+    border-radius: 10px;
     color: #fff;
     background-color: #b89f2a;
     font-weight: bold;
@@ -44,6 +45,7 @@ a {
     color: red;
     font-size: 16px;
     border: 3px solid;
+    border-radius: 10px;
     background-color: #360a0a;
     font-weight: bold;
 }
@@ -59,6 +61,7 @@ a {
     color: #ffd972;
     font-size: 16px;
     border: 3px solid;
+    border-radius: 10px;
     background-color: grey;
     font-weight: bold;
 }
@@ -89,14 +92,17 @@ a {
     grid-column-start: 1;
     grid-column-end: -1;
     justify-items: center;
+    border-radius: 10px;
 }
 .grid-kpi-values {
     display: grid;
     justify-items: center;
+    border-radius: 10px;
 }
 .grid-ratio-container {
     display: grid;
     justify-items: center;
+    border-radius: 10px;
 }
 .albion-slate {
     background-color: #504A4A;
