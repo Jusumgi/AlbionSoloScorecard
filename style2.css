@@ -77,7 +77,7 @@ a {
 }
 .grid-body-container {
     display: grid;
-    grid-template-columns: minmax(205px, 260px) minmax(222px, 300px) minmax(210px, 240px);
+    grid-template-columns: minmax(auto, 260px) minmax(auto, 300px) minmax(auto, 240px);
     grid-gap: 5px;
     justify-content: center;
     align-content: center;
