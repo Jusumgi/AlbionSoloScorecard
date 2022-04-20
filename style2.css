@@ -97,8 +97,10 @@
 .flex-mightfp{
     display:flex;
     flex-direction: row;
+    justify-content: space-around;
     grid-column-start: 1;
     grid-column-end: -1;
+    border: 5px;
 }
 .albion-slate {
     background-color: #504A4A;
@@ -144,6 +146,9 @@ a:hover{
     html{
         font-size: small;
     }
+    input{
+        font-size: small;
+    }
     .btn {
         font-size: small;
     }
@@ -153,6 +158,8 @@ a:hover{
     .resetBtn{
         font-size: small;
     }
-    
+    .grid-button-container {
+        grid-template-columns: repeat(2, minmax(auto, 90px));
+    }
 
 }
