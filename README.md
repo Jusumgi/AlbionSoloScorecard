@@ -6,9 +6,7 @@ This project is personally inspired by <a id="blackboatwitch" href="https://www.
 
 If you want to read the original blog post visit <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a>
 
-I am new to coding and found this to be a great first project.
-
-Currently this webapp has full functionality and could be used by the community, however, it doesn't look pretty. That will come later.
+I am fairly new to coding and found this to be a great first project to get me out of tutorial hell.
 
 The app currently features Local Storage and a reset button so your stats persist between reloads. I'll be working to get more long-term saving going on so you can view your past accomplishments over time.
 
