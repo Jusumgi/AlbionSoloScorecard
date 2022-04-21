@@ -13,83 +13,61 @@
     <div class="grid-body-container">
         <header class="grid-header-container albion-darkred">
             <h1 class="header" id="title">The Unofficial Albion Online Solo Scorecard</h1>
-            <p class="header" id="twitch">Inspired by <a id="blackboatwitch" href="https://www.twitch.tv/blackboa"
-                    target="_blank">Blackboa</a></p>
-            <p class="header" id="github">Created by <a id="cladgithub"
-                    href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank">Clad Vesto</a>, in
-                collaboration with TheZanke</p>
-            <p class="header" id="github-bug">See a bug? Let me know at my <a id="cladgithub"
-                    href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank">GitHub!</a></p>
+            <p class="header" id="twitch">Inspired by <a id="blackboatwitch" href="https://www.twitch.tv/blackboa" target="_blank">Blackboa</a></p>
+            <p class="header" id="github">
+                Created by <a id="cladgithub" href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank">Clad Vesto</a>, in collaboration with TheZanke
+            </p>
+            <p class="header" id="github-bug">See a bug? Let me know at my <a id="cladgithub" href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank">GitHub!</a></p>
             <p class="header" id="blog">
                 If you want to read the original blog post visit
-                <a id="sandboxpantheon"
-                    href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial"
-                    target="_blank">Sandbox Pantheon</a>
+                <a id="sandboxpantheon" href="https://sandboxpantheon.com/f/albion-online-solo-player-scorecard-unofficial" target="_blank">Sandbox Pantheon</a>
             </p>
         </header>
         <div class="grid-might-fp flex-mightfp albion-darkred">
             <div class="flex-might">
                 <div class="might-text">
-                    Might <input name="mightStart" id="mightStart" type="text" size="5" value="0"
-                        onchange="processUserInput(rangeDifference, 'mightStart')" /> -
-                    <input name="mightEnd" id="mightEnd" type="text" size="5" value="0"
-                        onchange="processUserInput(rangeDifference, 'mightEnd')" />
+                    Might <input name="mightStart" id="mightStart" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'mightStart')" /> -
+                    <input name="mightEnd" id="mightEnd" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'mightEnd')" />
                 </div>
             </div>
             <div class="flex-fp">
                 <div class="fp-text">
-                    Faction Points <input name="fpStart" id="fpStart" type="text" size="5" value="0"
-                        onchange="processUserInput(rangeDifference, 'fpStart')" /> -
-                    <input name="fpEnd" id="fpEnd" type="text" size="5" value="0"
-                        onchange="processUserInput(rangeDifference, 'fpEnd')" />
+                    Faction Points <input name="fpStart" id="fpStart" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'fpStart')" /> -
+                    <input name="fpEnd" id="fpEnd" type="text" size="5" value="0" onchange="processUserInput(rangeDifference, 'fpEnd')" />
                 </div>
             </div>
         </div>
         <div class="grid-kpi-values albion-darkred">
             <div class="kpi-text" id="resource">Plentiful Resource Nodes</div>
-            <div class="kpi-int"><input name="resourceNode" maxlength="3" size="1" type="text" id="resource-int"
-                    value="0" onchange="processUserInput(userEnteredValue, 'resource-int')" /></div>
+            <div class="kpi-int"><input name="resourceNode" maxlength="3" size="1" type="text" id="resource-int" value="0" onchange="processUserInput(userEnteredValue, 'resource-int')" /></div>
             <div class="kpi-text" id="upgradedMobs">Upgraded Mobs Killed</div>
-            <div class="kpi-int"><input name="upgradedMobs" maxlength="3" size="1" type="text" id="upgradedMobs-int"
-                    value="0" onchange="processUserInput(userEnteredValue, 'upgradedMobs-int')" /></div>
+            <div class="kpi-int"><input name="upgradedMobs" maxlength="3" size="1" type="text" id="upgradedMobs-int" value="0" onchange="processUserInput(userEnteredValue, 'upgradedMobs-int')" /></div>
             <div class="kpi-text" id="playerKill">Player Kills</div>
-            <div class="kpi-int"><input name="killedPlayers" maxlength="3" size="1" type="text" id="killedPlayers-int"
-                    value="0" onchange="processUserInput(userEnteredValue, 'killedPlayers-int')" /></div>
+            <div class="kpi-int"><input name="killedPlayers" maxlength="3" size="1" type="text" id="killedPlayers-int" value="0" onchange="processUserInput(userEnteredValue, 'killedPlayers-int')" /></div>
             <div class="kpi-text" id="lootbank">Banked Loot</div>
-            <div class="kpi-int"><input name="bankedLoot" maxlength="3" size="1" type="text" id="bankedLoot-int"
-                    value="0" onchange="processUserInput(userEnteredValue, 'bankedLoot-int')" /></div>
+            <div class="kpi-int"><input name="bankedLoot" maxlength="3" size="1" type="text" id="bankedLoot-int" value="0" onchange="processUserInput(userEnteredValue, 'bankedLoot-int')" /></div>
             <div class="kpi-text" id="chests">World Chests</div>
             <div class="kpi-int">
-                <input name="openWorldChests" maxlength="3" size="1" type="text" id="openWorldChests-int" value="0"
-                    onchange="processUserInput(userEnteredValue, 'openWorldChests-int')" />
+                <input name="openWorldChests" maxlength="3" size="1" type="text" id="openWorldChests-int" value="0" onchange="processUserInput(userEnteredValue, 'openWorldChests-int')" />
             </div>
             <div class="kpi-text" id="gankesc">Ganks Escaped</div>
-            <div class="kpi-int"><input name="escapedGank" maxlength="3" size="1" type="text" id="escapedGank-int"
-                    value="0" onchange="processUserInput(userEnteredValue, 'escapedGank-int')" /></div>
+            <div class="kpi-int"><input name="escapedGank" maxlength="3" size="1" type="text" id="escapedGank-int" value="0" onchange="processUserInput(userEnteredValue, 'escapedGank-int')" /></div>
         </div>
         <div class="grid-button-container albion-darkred">
-            <button class="grid-item btn" name="resourceNode"
-                onclick="buttonIncremented('resourceNode', 'resource-int')">Resource Node</button>
-            <button class="btn grid-item" name="upgradedMobs"
-                onclick="buttonIncremented('upgradedMobs', 'upgradedMobs-int')">Mob Kill</button>
-            <button class="btn grid-item" name="killedPlayers"
-                onclick="buttonIncremented('killedPlayers', 'killedPlayers-int')">Player Kill</button>
-            <button class="btn grid-item" name="bankedLoot"
-                onclick="buttonIncremented('bankedLoot', 'bankedLoot-int')">Banked</button>
-            <button class="btn grid-item" name="openWorldChests"
-                onclick="buttonIncremented('openWorldChests', 'openWorldChests-int')">Chest</button>
-            <button class="btn grid-item" name="escapedGank"
-                onclick="buttonIncremented('escapedGank', 'escapedGank-int')">Escaped</button>
+            <button class="grid-item btn" name="resourceNode" onclick="buttonIncremented('resourceNode', 'resource-int')">Resource Node</button>
+            <button class="btn grid-item" name="upgradedMobs" onclick="buttonIncremented('upgradedMobs', 'upgradedMobs-int')">Mob Kill</button>
+            <button class="btn grid-item" name="killedPlayers" onclick="buttonIncremented('killedPlayers', 'killedPlayers-int')">Player Kill</button>
+            <button class="btn grid-item" name="bankedLoot" onclick="buttonIncremented('bankedLoot', 'bankedLoot-int')">Banked</button>
+            <button class="btn grid-item" name="openWorldChests" onclick="buttonIncremented('openWorldChests', 'openWorldChests-int')">Chest</button>
+            <button class="btn grid-item" name="escapedGank" onclick="buttonIncremented('escapedGank', 'escapedGank-int')">Escaped</button>
             <button class="resetBtn grid-item2" onclick="resetValues()">RESET</button>
-            <button class="deadBtn grid-item3" name="deadCount"
-                onclick="buttonIncremented('deadCount', 'deadCount-int')">DEAD</button>
+            <button class="deadBtn grid-item3" name="deadCount" onclick="buttonIncremented('deadCount', 'deadCount-int')">DEAD</button>
         </div>
         <div class="grid-ratio-container albion-darkred">
             <div class="ratio-text" id="achievements">Total KPI</div>
             <div class="ratio-int" id="achievements-int">0</div>
             <div class="ratio-text" id="deaths">Deaths</div>
-            <div class="dead-int"><input name="deadCount" maxlength="3" size="1" type="text" id="deadCount-int"
-                    value="0" onchange="processUserInput(userEnteredValue, 'deadCount-int')" /></div>
+            <div class="dead-int"><input name="deadCount" maxlength="3" size="1" type="text" id="deadCount-int" value="0" onchange="processUserInput(userEnteredValue, 'deadCount-int')" /></div>
             <div class="ratio-text" id="kpidRatio">KPI to Death Ratio</div>
             <div class="ratio-int" id="kpidRatio-int">0</div>
             <div class="ratio-text" id="kpidRatio">Might Difference</div>
