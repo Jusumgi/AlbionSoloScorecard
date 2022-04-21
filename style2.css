@@ -1,4 +1,15 @@
-
+body {
+    margin:0;
+    height: 100%;
+    overflow: hidden;
+}
+.header {
+    font-size: 16px;
+}
+.title {
+    font-size: 36px;
+    font-weight: bold;
+}
 .kpi-text {
     text-decoration: underline;
     color: #ffd972;
@@ -83,16 +94,33 @@
     justify-items: center;
     border-radius: 10px;
 }
-.grid-kpi-values {
-    display: grid;
-    grid-auto-rows: 30px;
+.flex-kpi-values {
+    display: flex;
+    white-space: nowrap;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+.flex-kpi-items {
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-self: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.flex-ratio-container {
+    display: flex;
+    white-space: nowrap;
+    flex-direction: column;
     justify-items: center;
     border-radius: 10px;
 }
-.grid-ratio-container {
-    display: grid;
-    justify-items: center;
-    border-radius: 10px;
+.flex-ratio-items {
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-self: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .flex-mightfp{
     display:flex;
@@ -142,7 +170,7 @@ a {
 a:hover{
     color:#ffd972;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) { /*Optimized for iPhone SE*/
     html{
         font-size: small;
     }
@@ -158,8 +186,34 @@ a:hover{
     .resetBtn{
         font-size: small;
     }
+    .header {
+        font-size: small;
+    }
+    .title {
+        font-size: 18px;
+    }
     .grid-button-container {
         grid-template-columns: repeat(2, minmax(auto, 90px));
     }
 
+}
+@media (orientation: landscape){
+    html{
+        font-size: small;
+    }
+    input{
+        font-size: small;
+    }
+    .btn {
+        font-size: small;
+    }
+    .deadBtn {
+        font-size: small;
+    }
+    .resetBtn{
+        font-size: small;
+    }
+    .grid-header-container{
+        display: none;
+    }
 }
