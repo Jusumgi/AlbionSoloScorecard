@@ -170,7 +170,7 @@ a {
 a:hover{
     color:#ffd972;
 }
-@media screen and (max-width: 600px) { /*Optimized for iPhone SE*/
+@media screen and (max-width: 675px) { /*Optimized for iPhone SE*/
     html{
         font-size: small;
     }
@@ -195,9 +195,12 @@ a:hover{
     .grid-button-container {
         grid-template-columns: repeat(2, minmax(auto, 90px));
     }
+    .grid-body-container {
+        grid-template-columns: minmax(auto, 300px) minmax(auto, 300px) minmax(auto, 240px);
+    }
 
 }
-@media (orientation: landscape){
+@media (orientation: landscape) {
     html{
         font-size: small;
     }
@@ -215,5 +218,12 @@ a:hover{
     }
     .grid-header-container{
         display: none;
+    }
+    .grid-body-container {
+        grid-template-columns: minmax(auto, 160px) minmax(auto, 150px) minmax(auto, 100px);
+        grid-template-rows: 30px 85%;
+    }
+    .flex-kpi-items{
+        padding: 2px 0px 2px 0px;
     }
 }
