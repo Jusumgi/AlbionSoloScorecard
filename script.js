@@ -12,8 +12,6 @@ const defaultValues = {
     openWorldChests: 0, // button
     escapedGank: 0, // button
     deadCount: 0, // button
-    //mightProgression: 0, // Starting Might vs Ending Might, user entered
-    //factionPoints: 0, // Starting FP vs Ending FP, user entered
 };
 const defaultRanges = {
     mightStart: 0,
@@ -26,7 +24,6 @@ const values = { ...defaultValues };
 const ranges = { ...defaultRanges };
 
 let kpiDeathRatio = 0;
-    //kpiDeathRatio = kpiDeathRatio.toFixed(2); // Page loads initally with floating number.
 
 function sum( obj ) { // function that makes an array of values and adds them together.
     var sum = 0;
@@ -64,15 +61,11 @@ function hydrateValues() { // fetches values from local storage
         let storedAchievement = localStorage.getItem("achievement");
         let storedRatio = localStorage.getItem("ratio");
         let storedRanges = localStorage.getItem("ranges");
-        console.log("STORED SCORECARD: " + storedScorecard);
-        console.log("STORED ACHIEVEMENT: " + storedAchievement);
-        console.log("STORED RATIO: " + storedRatio);
-        console.log("STORED RANGES: " + storedRanges);
-        kpiDeathRatio = JSON.parse(storedRatio);
         if (!storedScorecard) return;
         Object.assign(values, JSON.parse(storedScorecard));
         Object.assign(ranges, JSON.parse(storedRanges));
         totalAchievements = JSON.parse(storedAchievement);
+        kpiDeathRatio = JSON.parse(storedRatio);
         ach2deathRatio();
         renderAllValues();
     } catch {}
@@ -88,8 +81,6 @@ function storeValues() { // preserves values to local storage
 function resetValues() { // zeroes out the scorecard
     Object.assign(values, defaultValues);
     Object.assign(ranges, defaultRanges);
-    console.log(values);
-    console.log(ranges);
     totalAchievements = 0;
     kpiDeathRatio = 0;
     renderAllValues();
@@ -97,23 +88,16 @@ function resetValues() { // zeroes out the scorecard
 }
 function rangeDifference(enteredValue, propertyChanged){
     ranges[propertyChanged] = enteredValue;
-    console.log(ranges);
     if (propertyChanged == "mightStart") {
         document.getElementById("might-int").innerHTML = (ranges.mightEnd - ranges.mightStart);
-        console.log(document.getElementById("might-int").innerHTML);
     } else if (propertyChanged == "mightEnd") {
         document.getElementById("might-int").innerHTML = (ranges.mightEnd - ranges.mightStart);
-        console.log(document.getElementById("might-int").innerHTML);
     } else {
         document.getElementById("fp-int").innerHTML = (ranges.fpEnd - ranges.fpStart)
-        console.log(document.getElementById("fp-int").innerHTML);
     } storeValues();
 }
 function userEnteredValue(enteredValue, propertyChanged){ // using parameters from processUserInput, makes the value changes to values object
-    console.log("value: " + propertyChanged)
     values[propertyChanged] = enteredValue;
-    console.log(values[propertyChanged]);
-    console.log(values);
     totalAchievements = sum(values) - values.deadCount;
     ach2deathRatio();
     renderAllValues();
@@ -121,7 +105,6 @@ function userEnteredValue(enteredValue, propertyChanged){ // using parameters fr
 }
 
 function processUserInput(callback, id){ // function that collects parameters then callsback to userEnteredValue
-    console.log(id);
     var enteredValue = parseInt(document.getElementById(id).value, 10);
     var propertyChanged = document.getElementById(id).name;
     callback(enteredValue, propertyChanged);
@@ -143,8 +126,6 @@ function ach2deathRatio() { // updates the Total KPI and Ratio elements
     storeValues();
     if (values.deadCount < 1) return;
     kpiDeathRatio = totalAchievements / values.deadCount;
-    console.log("evaluated false: " + kpiDeathRatio)
-    storeValues();
 }
 
 window.addEventListener('load', hydrateValues);
