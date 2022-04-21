@@ -75,22 +75,26 @@ body {
 }
 .grid-body-container {
     display: grid;
-    grid-template-columns: minmax(auto, 300px) minmax(auto, 300px) minmax(auto, 240px);
+    grid-template-columns: minmax(auto, 300px) repeat(2, minmax(auto, 150px)) minmax(auto, 240px);
     grid-gap: 5px;
     justify-content: center;
     align-content: center;
     height: 100vh;
 }
-.grid-button-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+.flex-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    /* align-content: flex-start; */
+}
+.flex-buttons {
+    flex-grow: 1;
 }
 
 .grid-header-container {
     display: grid;
-    grid-column-start: 1;
-    grid-column-end: -1;
+    grid-column: 1 / -1;
     justify-items: center;
     border-radius: 10px;
 }
@@ -166,7 +170,7 @@ a {
 a:hover{
     color:#ffd972;
 }
-@media screen and (max-width: 675px) { /*Optimized for iPhone SE*/
+@media screen and (max-width: 675px) { 
     html{
         font-size: small;
     }
@@ -188,11 +192,12 @@ a:hover{
     .title {
         font-size: 18px;
     }
-    .grid-button-container {
-        grid-template-columns: repeat(2, minmax(auto, 90px));
+    .flex-button-container{
+        justify-content: space-between;
     }
+ 
     .grid-body-container {
-        grid-template-columns: minmax(100px, 120px) minmax(120px, 140px) minmax(100px, 120px);
+        grid-template-columns: minmax(80px, 120px) repeat(2, minmax(60px, 70px)) minmax(100px, 120px);
     }
     .flex-kpi-items{
         flex-shrink: 1;
@@ -200,7 +205,7 @@ a:hover{
     }
 
 }
-@media (orientation: landscape) {
+@media screen and (max-width: 675px) and (orientation: landscape) {
     html{
         font-size: small;
     }
@@ -220,10 +225,12 @@ a:hover{
         display: none;
     }
     .grid-body-container {
-        grid-template-columns: minmax(auto, 160px) minmax(auto, 150px) minmax(auto, 100px);
-        grid-template-rows: 30px 85%;
+        grid-template-columns: minmax(80px, 120px) repeat(2, minmax(60px, 70px)) minmax(100px, 120px);
+    }
+    .flex-button-container{
+        flex-basis: auto;
     }
     .flex-kpi-items{
         padding: 2px 0px 2px 0px;
     }
-}
+} 
