@@ -96,28 +96,24 @@ body {
 }
 .flex-kpi-values {
     display: flex;
-    white-space: nowrap;
     flex-direction: column;
     border-radius: 10px;
     justify-content: space-around;
 }
 .flex-kpi-items {
     flex-grow: 1;
-    flex-shrink: 1;
     align-self: center;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 .flex-ratio-container {
     display: flex;
-    white-space: nowrap;
     flex-direction: column;
     justify-items: center;
     border-radius: 10px;
 }
 .flex-ratio-items {
     flex-grow: 1;
-    flex-shrink: 1;
     align-self: center;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -196,7 +192,11 @@ a:hover{
         grid-template-columns: repeat(2, minmax(auto, 90px));
     }
     .grid-body-container {
-        grid-template-columns: minmax(auto, 300px) minmax(auto, 300px) minmax(auto, 240px);
+        grid-template-columns: minmax(100px, 120px) minmax(120px, 140px) minmax(100px, 120px);
+    }
+    .flex-kpi-items{
+        flex-shrink: 1;
+        font-size: smaller;
     }
 
 }
