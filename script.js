@@ -34,7 +34,7 @@ kpiDeathRatio = kpiDeathRatio.toFixed(2); // Page loads initally with floating n
  * Takes an object of key:number pairs and sums its values.
  * @param {{ [key: string]: number }} obj
  * @returns number
- **/
+ */
 function sumObjectValues(obj) {
   return Object.values(obj).reduce((t, v) => t + v, 0);
 }
@@ -63,8 +63,10 @@ function renderAllValues() {
   document.getElementById('fp-int').innerHTML = ranges.fpEnd - ranges.fpStart;
 }
 
+/**
+ * fetches values from local storage.
+ */
 function hydrateValues() {
-  // fetches values from local storage
   try {
     let storedScorecard = localStorage.getItem(LOCAL_STORAGE_KEYS.SCORECARD);
     let storedAchievement = localStorage.getItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT);
@@ -110,15 +112,19 @@ function resetValues() {
   storeValues();
 }
 
+/**
+ * @param {number} enteredValue
+ * @param {keyof ranges} propertyChanged
+ */
 function rangeDifference(enteredValue, propertyChanged) {
   ranges[propertyChanged] = enteredValue;
 
   console.log(ranges);
 
-  if (propertyChanged == 'mightStart') {
+  if (propertyChanged === 'mightStart') {
     document.getElementById('might-int').innerHTML = ranges.mightEnd - ranges.mightStart;
     console.log(document.getElementById('might-int').innerHTML);
-  } else if (propertyChanged == 'mightEnd') {
+  } else if (propertyChanged === 'mightEnd') {
     document.getElementById('might-int').innerHTML = ranges.mightEnd - ranges.mightStart;
     console.log(document.getElementById('might-int').innerHTML);
   } else {
@@ -129,8 +135,12 @@ function rangeDifference(enteredValue, propertyChanged) {
   storeValues();
 }
 
+/**
+ * Makes the value changes to values object using parameters from processUserInput.
+ * @param {number} enteredValue
+ * @param {keyof values} propertyChanged
+ */
 function userEnteredValue(enteredValue, propertyChanged) {
-  // using parameters from processUserInput, makes the value changes to values object
   console.log('value: ' + propertyChanged);
 
   values[propertyChanged] = enteredValue;
@@ -144,8 +154,12 @@ function userEnteredValue(enteredValue, propertyChanged) {
   storeValues();
 }
 
+/**
+ * Collects parameters and passes them to callback function.
+ * @param {function} callback
+ * @param {string} id
+ */
 function processUserInput(callback, id) {
-  // function that collects parameters then callsback to userEnteredValue
   console.log(id);
 
   let enteredValue = parseInt(document.getElementById(id).value, 10);
@@ -156,14 +170,14 @@ function processUserInput(callback, id) {
 
 /**
  * Increments respective button based on btn parameter, then increments totalAchievement if the btn was not deadCount.
- * @param {*} buttonkey
- * @param {*} int
+ * @param {string} buttonkey
+ * @param {string} id
  */
-function buttonIncremented(buttonkey, int) {
+function buttonIncremented(buttonkey, id) {
   values[buttonkey]++;
-  document.getElementById(int).value = values[buttonkey];
+  document.getElementById(id).value = values[buttonkey];
 
-  if (buttonkey != 'deadCount') {
+  if (buttonkey !== 'deadCount') {
     totalAchievements++;
   }
 
@@ -175,7 +189,7 @@ function buttonIncremented(buttonkey, int) {
  * Updates the Total KPI and Ratio elements.
  */
 function ach2deathRatio() {
-  if (values.deadCount == 0) {
+  if (values.deadCount === 0) {
     document.getElementById('achievements-int').innerHTML = totalAchievements;
     document.getElementById('kpidRatio-int').innerHTML = totalAchievements.toFixed(2);
   } else {
