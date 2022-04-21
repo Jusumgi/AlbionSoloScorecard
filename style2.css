@@ -86,6 +86,11 @@ body {
     flex-direction: column;
     align-content: flex-start;
 }
+.flex-footer{
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+}
 .flex-buttons {
     flex: 5;
 }
@@ -204,6 +209,35 @@ a:hover{
 
 }
 @media screen and (max-width: 675px) and (orientation: landscape) {
+    html{
+        font-size: small;
+    }
+    input{
+        font-size: small;
+    }
+    .btn {
+        font-size: small;
+    }
+    .deadBtn {
+        font-size: small;
+    }
+    .resetBtn{
+        font-size: small;
+    }
+    .grid-header-container{
+        display: none;
+    }
+    .grid-body-container {
+        grid-template-columns: minmax(80px, 120px) repeat(2, minmax(60px, 70px)) minmax(100px, 120px);
+    }
+    .flex-button-container{
+        flex-basis: auto;
+    }
+    .flex-kpi-items{
+        padding: 2px 0px 2px 0px;
+    }
+} 
+@media screen and (max-width: 930px) and (orientation: landscape) {
     html{
         font-size: small;
     }
