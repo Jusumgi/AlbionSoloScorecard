@@ -26,7 +26,7 @@ const values = { ...defaultValues };
 const ranges = { ...defaultRanges };
 
 let kpiDeathRatio = 0;
-    kpiDeathRatio = kpiDeathRatio.toFixed(2); // Page loads initally with floating number.
+    //kpiDeathRatio = kpiDeathRatio.toFixed(2); // Page loads initally with floating number.
 
 function sum( obj ) { // function that makes an array of values and adds them together.
     var sum = 0;
@@ -64,12 +64,16 @@ function hydrateValues() { // fetches values from local storage
         let storedAchievement = localStorage.getItem("achievement");
         let storedRatio = localStorage.getItem("ratio");
         let storedRanges = localStorage.getItem("ranges");
-        console.log(storedScorecard);
+        console.log("STORED SCORECARD: " + storedScorecard);
+        console.log("STORED ACHIEVEMENT: " + storedAchievement);
+        console.log("STORED RATIO: " + storedRatio);
+        console.log("STORED RANGES: " + storedRanges);
+        kpiDeathRatio = JSON.parse(storedRatio);
         if (!storedScorecard) return;
         Object.assign(values, JSON.parse(storedScorecard));
         Object.assign(ranges, JSON.parse(storedRanges));
         totalAchievements = JSON.parse(storedAchievement);
-        kpiDeathRatio = JSON.parse(storedRatio);
+        ach2deathRatio();
         renderAllValues();
     } catch {}
 }
@@ -112,6 +116,7 @@ function userEnteredValue(enteredValue, propertyChanged){ // using parameters fr
     console.log(values);
     totalAchievements = sum(values) - values.deadCount;
     ach2deathRatio();
+    renderAllValues();
     storeValues();
 }
 
@@ -129,18 +134,16 @@ function buttonIncremented(btn, int){ // increments respective button based on b
         totalAchievements++;
         }
     ach2deathRatio();
+    renderAllValues();
     storeValues();
 }
 
 function ach2deathRatio() { // updates the Total KPI and Ratio elements
-    if (values.deadCount == 0) {
-        document.getElementById("achievements-int").innerHTML = totalAchievements;
-        document.getElementById("kpidRatio-int").innerHTML = totalAchievements.toFixed(2);
-        } else {
-        document.getElementById("achievements-int").innerHTML = totalAchievements;
-        kpiDeathRatio = totalAchievements / values.deadCount;
-        document.getElementById("kpidRatio-int").innerHTML = kpiDeathRatio.toFixed(2);
-        }
+    kpiDeathRatio = totalAchievements / 1;
+    storeValues();
+    if (values.deadCount < 1) return;
+    kpiDeathRatio = totalAchievements / values.deadCount;
+    console.log("evaluated false: " + kpiDeathRatio)
     storeValues();
 }
 
