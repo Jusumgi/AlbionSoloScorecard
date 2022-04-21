@@ -84,12 +84,10 @@ body {
 .flex-button-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: stretch;
-    /* align-content: flex-start; */
+    align-content: flex-start;
 }
 .flex-buttons {
-    flex-grow: 1;
+    flex: 5;
 }
 
 .grid-header-container {
