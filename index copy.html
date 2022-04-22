@@ -26,52 +26,60 @@
         <header class="row">
             <h1 class="text-center text-decoration-underline" id="title">Albion Online KPI Tracker</h1>
         </header>
-        <div class="container-fluid bg-danger">
-            <div class="row justify-content-center">
-                <div class="col-6">
-                    Might <input class="" name="mightStart" id="mightStart" type="text" size="4" value="0" onchange="processUserInput(rangeDifference, 'mightStart')" /> -
+        <!-- <div class="container bg-danger">
+            <div class="row">
+                <div class="col-4">
+                    Might
+                    <input class="" name="mightStart" id="mightStart" type="text" size="4" value="0" onchange="processUserInput(rangeDifference, 'mightStart')" />
+                    <div class="">-</div>
                     <input class="" name="mightEnd" id="mightEnd" type="text" size="4" value="0" onchange="processUserInput(rangeDifference, 'mightEnd')" />
                 </div>
-                <div class="col-6">
-                    <div class="">
-                        Faction <input class="align-self-center" name="fpStart" id="fpStart" type="text" size="4" value="0" onchange="processUserInput(rangeDifference, 'fpStart')" /> -
-                        <input class="" name="fpEnd" id="fpEnd" type="text" size="4" value="0" onchange="processUserInput(rangeDifference, 'fpEnd')" />
-                    </div>
+                <div class="col">
+                    Faction
+                    <input class="" name="fpStart" id="fpStart" type="text" size="4" value="0" onchange="processUserInput(rangeDifference, 'fpStart')" />
+                    <div class="">-</div>
+                    <input class="" name="fpEnd" id="fpEnd" type="text" size="4" value="0" onchange="processUserInput(rangeDifference, 'fpEnd')" />
                 </div>
             </div>
-            <!-- Force next columns to break to new line -->
-
-        </div>
-        <div class="container d-flex flex-row justify-content-evenly align-items-center col bg-primary">
-            <div class="row d-flex flex-column">
-                <div class="flex-kpi-items" id="resource">Resource Nodes</div>
-                <div class="flex-kpi-items"><input name="resourceNode" maxlength="3" size="1" type="number" id="resource-int" value="0" onchange="processUserInput(userEnteredValue, 'resource-int')" /></div>
-                <div class="flex-kpi-items" id="upgradedMobs">Upgraded Mob</div>
-                <div class="flex-kpi-items"><input name="upgradedMobs" maxlength="3" size="1" type="number" id="upgradedMobs-int" value="0" onchange="processUserInput(userEnteredValue, 'upgradedMobs-int')" /></div>
-                <div class="flex-kpi-items" id="playerKill">Player Kills</div>
-                <div class="flex-kpi-items"><input name="killedPlayers" maxlength="3" size="1" type="number" id="killedPlayers-int" value="0" onchange="processUserInput(userEnteredValue, 'killedPlayers-int')" /></div>
+        </div> -->
+        <div class="d-flex align-items-center justify-content-evenly bg-primary">
+            <div class="flex-row">
+                <div class="" id="resource">Resource Nodes</div>
+                <div class=""><input class="form-control form-control-sm" name="resourceNode" maxlength="3" size="1" type="number" id="resource-int" value="0" onchange="processUserInput(userEnteredValue, 'resource-int')" /></div>
+                <div class="" id="upgradedMobs">Upgraded Mob</div>
+                <div class=""><input class="form-control form-control-sm" name="upgradedMobs" maxlength="3" size="1" type="number" id="upgradedMobs-int" value="0" onchange="processUserInput(userEnteredValue, 'upgradedMobs-int')" /></div>
+                <div class="" id="playerKill">Player Kills</div>
+                <div class=""><input class="form-control form-control-sm" name="killedPlayers" maxlength="3" size="1" type="number" id="killedPlayers-int" value="0" onchange="processUserInput(userEnteredValue, 'killedPlayers-int')" /></div>
             </div>
-            <div class="row d-flex flex-column">
-                <div class="flex-kpi-items" id="lootbank">Banked Loot</div>
-                <div class="flex-kpi-items"><input name="bankedLoot" maxlength="3" size="1" type="number" id="bankedLoot-int" value="0" onchange="processUserInput(userEnteredValue, 'bankedLoot-int')" /></div>
-                <div class="flex-kpi-items" id="chests">World Chests</div>
-                <div class="flex-kpi-items"><input name="openWorldChests" maxlength="3" size="1" type="number" id="openWorldChests-int" value="0" onchange="processUserInput(userEnteredValue, 'openWorldChests-int')" /></div>
-                <div class="flex-kpi-items" id="gankesc">Ganks Escaped</div>
-                <div class="flex-kpi-items"><input name="escapedGank" maxlength="3" size="1" type="number" id="escapedGank-int" value="0" onchange="processUserInput(userEnteredValue, 'escapedGank-int')" /></div>
+            <div class="flex-row">
+                <div class="" id="lootbank">Banked Loot</div>
+                <div class=""><input class="form-control form-control-sm" name="bankedLoot" maxlength="3" size="1" type="number" id="bankedLoot-int" value="0" onchange="processUserInput(userEnteredValue, 'bankedLoot-int')" />
+                </div>
+                <div class="" id="chests">World Chests</div>
+                <div class=""><input class="form-control form-control-sm" name="openWorldChests" maxlength="3" size="1" type="number" id="openWorldChests-int" value="0" onchange="processUserInput(userEnteredValue, 'openWorldChests-int')" />
+                </div>
+                <div class="" id="gankesc">Ganks Escaped</div>
+                <div class=""><input class="form-control form-control-sm" name="escapedGank" maxlength="3" size="1" type="number" id="escapedGank-int" value="0" onchange="processUserInput(userEnteredValue, 'escapedGank-int')" /></div>
 
             </div>
         </div>
-        <div class="container d-flex flex-row justify-content-evenly align-items-center col bg-success">
-            <div class="flex-ratio-items" id="achievements">Total KPI</div>
-            <div class="flex-ratio-items" id="achievements-int">0</div>
-            <div class="flex-ratio-items" id="deaths">Deaths</div>
-            <div class="flex-ratio-items"><input name="deadCount" maxlength="3" size="1" type="number" id="deadCount-int" value="0" onchange="processUserInput(userEnteredValue, 'deadCount-int')" /></div>
-            <div class="flex-ratio-items" id="kpidRatio">KPI to Death Ratio</div>
-            <div class="flex-ratio-items" id="kpi">0</div>
-            <div class="flex-ratio-items" id="might-text">Might Difference</div>
-            <div class="flex-ratio-items" id="might-int">0</div>
-            <div class="flex-ratio-items" id="fp-text">FP Difference</div>
-            <div class="flex-ratio-items" id="fp-int">0</div>
+        <div class="d-flex justify-content-evenly bg-success">
+            <div class="col flex-row">
+                <div class="" id="achievements-int">0</div>
+                <div class="" id="achievements">Total KPI</div>
+                <div class="" id="kpidRatio">KPI to Death Ratio</div>
+                <div class="" id="kpi">0</div>
+            </div>
+            <div class="col flex-row bg-danger">
+                <div class="align-self-center" id="deaths">Deaths</div>
+                <div class=""><input name="deadCount" maxlength="3" size="1" type="number" id="deadCount-int" value="0" onchange="processUserInput(userEnteredValue, 'deadCount-int')" /></div>
+            </div>
+            <div class="col flex-row">
+                <div class="" id="might-text">Might Difference</div>
+                <div class="" id="might-int">0</div>
+                <div class="" id="fp-text">FP Difference</div>
+                <div class="" id="fp-int">0</div>
+            </div>
         </div>
         <div class="container col-8">
             <div class="" id="github-bug">See a bug? Let me know on <a class="bi bi-github text-dark text-decoration-none" href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank"> GitHub</a></div>
