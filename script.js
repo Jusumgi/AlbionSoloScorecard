@@ -13,7 +13,6 @@ const defaultValues = {
   openWorldChests: 0, // button
   resourceNode: 0, // button
   upgradedMobs: 0, // button
-
 };
 
 const defaultRanges = {
@@ -93,7 +92,6 @@ function storeValues() {
   localStorage.setItem(LOCAL_STORAGE_KEYS.RATIO, JSON.stringify(kpiDeathRatio));
 }
 
-
 /**
  * Zeroes out the scorecard.
  */
@@ -172,10 +170,15 @@ function buttonIncremented(buttonkey, id) {
  * Updates the Total KPI and Ratio elements.
  */
 function ach2deathRatio() {
-    kpiDeathRatio = totalAchievements / 1;
-    storeValues();
-    if (values.deadCount < 1) return;
-    kpiDeathRatio = totalAchievements / values.deadCount;
+  kpiDeathRatio = totalAchievements / 1;
+  storeValues();
+  if (values.deadCount < 1) return;
+  kpiDeathRatio = totalAchievements / values.deadCount;
 }
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
 
 window.addEventListener('load', hydrateValues);
