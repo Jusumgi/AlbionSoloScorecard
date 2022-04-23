@@ -42,47 +42,47 @@
                 </div>
             </div>
         </div> -->
-        <div class="d-flex align-items-center justify-content-evenly bg-primary">
-            <div class="flex-row">
-                <div class="" id="resource">Resource Nodes</div>
+        <div class="row bg-primary">
+            <div class="col">
+                <div class="text-center" id="resource">Resource Nodes</div>
                 <div class=""><input class="form-control form-control-sm" name="resourceNode" maxlength="3" size="1" type="number" id="resource-int" value="0" onchange="processUserInput(userEnteredValue, 'resource-int')" /></div>
-                <div class="" id="upgradedMobs">Upgraded Mob</div>
+                <div class="text-center" id="upgradedMobs">Upgraded Mob</div>
                 <div class=""><input class="form-control form-control-sm" name="upgradedMobs" maxlength="3" size="1" type="number" id="upgradedMobs-int" value="0" onchange="processUserInput(userEnteredValue, 'upgradedMobs-int')" /></div>
-                <div class="" id="playerKill">Player Kills</div>
+                <div class="text-center" id="playerKill">Player Kills</div>
                 <div class=""><input class="form-control form-control-sm" name="killedPlayers" maxlength="3" size="1" type="number" id="killedPlayers-int" value="0" onchange="processUserInput(userEnteredValue, 'killedPlayers-int')" /></div>
             </div>
-            <div class="flex-row">
-                <div class="" id="lootbank">Banked Loot</div>
+            <div class="col">
+                <div class="text-center" id="lootbank">Banked Loot</div>
                 <div class=""><input class="form-control form-control-sm" name="bankedLoot" maxlength="3" size="1" type="number" id="bankedLoot-int" value="0" onchange="processUserInput(userEnteredValue, 'bankedLoot-int')" />
                 </div>
-                <div class="" id="chests">World Chests</div>
+                <div class="text-center" id="chests">World Chests</div>
                 <div class=""><input class="form-control form-control-sm" name="openWorldChests" maxlength="3" size="1" type="number" id="openWorldChests-int" value="0" onchange="processUserInput(userEnteredValue, 'openWorldChests-int')" />
                 </div>
-                <div class="" id="gankesc">Ganks Escaped</div>
+                <div class="text-center" id="gankesc">Ganks Escaped</div>
                 <div class=""><input class="form-control form-control-sm" name="escapedGank" maxlength="3" size="1" type="number" id="escapedGank-int" value="0" onchange="processUserInput(userEnteredValue, 'escapedGank-int')" /></div>
 
             </div>
         </div>
-        <div class="d-flex justify-content-evenly bg-success">
-            <div class="col flex-row">
-                <div class="" id="achievements-int">0</div>
+        <div class="row bg-success">
+            <div class="col">
                 <div class="" id="achievements">Total KPI</div>
+                <div class="" id="achievements-int">0</div>
                 <div class="" id="kpidRatio">KPI to Death Ratio</div>
-                <div class="" id="kpi">0</div>
+                <div class="" id="kpi-int">0</div>
             </div>
-            <div class="col flex-row bg-danger">
-                <div class="align-self-center" id="deaths">Deaths</div>
+            <div class="col bg-danger">
+                <div class="" id="deaths">Deaths</div>
                 <div class=""><input name="deadCount" maxlength="3" size="1" type="number" id="deadCount-int" value="0" onchange="processUserInput(userEnteredValue, 'deadCount-int')" /></div>
             </div>
-            <div class="col flex-row">
+            <div class="col">
                 <div class="" id="might-text">Might Difference</div>
                 <div class="" id="might-int">0</div>
                 <div class="" id="fp-text">FP Difference</div>
                 <div class="" id="fp-int">0</div>
             </div>
         </div>
-        <div class="container col-8">
-            <div class="" id="github-bug">See a bug? Let me know on <a class="bi bi-github text-dark text-decoration-none" href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank"> GitHub</a></div>
+        <div class="row">
+            <div class="text-center" id="github-bug">See a bug? Let me know on <a class="bi bi-github text-dark text-decoration-none" href="https://github.com/Clad-Vesto/AlbionSoloScorecard" target="_blank"> GitHub</a></div>
         </div>
     </div>
 
