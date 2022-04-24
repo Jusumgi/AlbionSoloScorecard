@@ -36,7 +36,10 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: #504A4A!important;
 }
 .albion-grey {
-    background-color: #ebe2e2!important;
+    background-color: hsl(0, 18%, 90%)!important;
+}
+.albion-grey:hover {
+    background-color: hsl(0, 18%, 80%)!important;
 }
 .albion-darkestred {
     background-color: #360a0a!important;
@@ -49,16 +52,28 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: #C2604E!important;
 }
 .albion-red {
-    background-color: hsl(9, 63%, 46%)!important;
+    background-color: hsl(9, 63%, 47%)!important;
+}
+.albion-red:hover {
+    background-color: hsl(9, 63%, 56%)!important;
 }
 .albion-darkerred {
-    background-color: hsl(9, 63%, 38%)!important;
+background-color: hsl(9, 63%, 40%)!important;
+}
+.albion-darkerred:hover {
+background-color: hsl(9, 63%, 50%)!important;
 }
 .albion-gold {
     background-color: hsl(49, 63%, 44%)!important;
 }
+.albion-gold:hover {
+    background-color: hsl(49, 63%, 33%)!important;
+}
 .albion-bright {
-    background-color: hsl(44, 100%, 72%)!important;
+    background-color: hsl(49, 100%, 72%)!important;
+}
+.albion-bright:hover {
+    background-color: hsl(49, 100%, 62%)!important;
 }
 .albion-bright-text {
     color: #ffd972!important;
