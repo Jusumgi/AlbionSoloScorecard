@@ -14,13 +14,12 @@ The app currently features Local Storage and a reset button so your stats persis
 
 Some features I may get around to in no real order..
 1.  <s>Make it look good.</s>
-2.  Make it more Mobile friendly
+2.  <s>Make it more Mobile friendly</s>
 3.  <s>Add the Might and Faction Points tracker</s>
-5.  Add info bubbles for each KPI to help guide what events they cover
+5.  <s>Add info bubbles for each KPI to help guide what events they cover</s> Added an About section
 6.  ~~Make a reset button~~
 7.  Create personal best tracking
 8.  Create personal historical stats
-9.  Make it look better than good
-10.  Create hotkeys and make use of Electron to make it a desktop app
+9.  Create hotkeys and make use of Electron to make it a desktop app
 
 Thank you for checking this out!
