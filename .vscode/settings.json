@@ -10,5 +10,6 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "html.format.wrapLineLength": 240,
-  "html.format.endWithNewline": true
+  "html.format.endWithNewline": true,
+  "livePreview.defaultPreviewPath": "/index.html"
 }

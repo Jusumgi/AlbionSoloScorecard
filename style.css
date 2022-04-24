@@ -1,0 +1,82 @@
+input[type="number"] {
+-webkit-appearance: textfield;
+    -moz-appearance: textfield;
+        appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none;
+}
+@font-face {
+    font-family: albion;
+    src: url(font/Koch-Fraktur.ttf);
+}
+@font-face {
+    font-family: opensans;
+    src: url(font/OpenSans-Regular.ttf);
+}
+@font-face {
+    font-family: opensans-bold;
+    src: url(font/OpenSans-Bold.ttf);
+}
+.albion-title{
+    font-family: albion!important;
+    color:#ffd972!important;
+}
+.albion-title-secondary {
+    font-family: opensans;
+    color:#ffd972!important;
+}
+
+.albion-bold {
+    font-family: opensans-bold!important;
+    font-size: 1rem!important;
+}
+.albion-slate {
+    background-color: #504A4A!important;
+}
+.albion-grey {
+    background-color: #ebe2e2!important;
+}
+.albion-darkestred {
+    background-color: #360a0a!important;
+}
+.albion-darkred {
+    background-color: #802B1C!important;
+    color: #ffd972!important;
+}
+.albion-salmon {
+    background-color: #C2604E!important;
+}
+.albion-red {
+    background-color: hsl(9, 63%, 46%)!important;
+}
+.albion-darkerred {
+    background-color: hsl(9, 63%, 38%)!important;
+}
+.albion-gold {
+    background-color: hsl(49, 63%, 44%)!important;
+}
+.albion-bright {
+    background-color: hsl(44, 100%, 72%)!important;
+}
+.albion-bright-text {
+    color: #ffd972!important;
+}
+.albion-orange-text {
+    color: hsl(34, 89%, 54%);
+}
+.albion-orange-text:hover {
+    color: hsl(34, 89%, 70%);
+}
+.albion-lead{
+    font-family: albion!important;
+    color: hsl(34, 89%, 54%)!important;
+}
+.albion-lead:hover{
+    font-family: albion!important;
+    color: hsl(34, 89%, 70%)!important;
+}
+.albion-red-text {
+    color: hsl(9, 63%, 46%)!important;
+}
