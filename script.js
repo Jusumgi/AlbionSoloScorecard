@@ -43,22 +43,27 @@ let range = 0;
 /**
  * Updates all elements with the current values.
  */
-function renderAllValues() {
-  document.getElementById('resource-int').value = values.resourceNode;
-  document.getElementById('upgradedMobs-int').value = values.upgradedMobs;
-  document.getElementById('killedPlayers-int').value = values.killedPlayers;
-  document.getElementById('bankedLoot-int').value = values.bankedLoot;
-  document.getElementById('openWorldChests-int').value = values.openWorldChests;
-  document.getElementById('escapedGank-int').value = values.escapedGank;
-  document.getElementById('deadCount-int').value = values.deadCount;
+function renderAllValues(a) {
+  document.getElementById('resource-int').innerHTML = values.resourceNode;
+  document.getElementById('upgradedMobs-int').innerHTML = values.upgradedMobs;
+  document.getElementById('killedPlayers-int').innerHTML = values.killedPlayers;
+  document.getElementById('bankedLoot-int').innerHTML = values.bankedLoot;
+  document.getElementById('openWorldChests-int').innerHTML = values.openWorldChests;
+  document.getElementById('escapedGank-int').innerHTML = values.escapedGank;
+  document.getElementById('deadCount-int').innerHTML = values.deadCount;
+  document.getElementById('deadCount-int-2').innerHTML = values.deadCount;
   document.getElementById('achievements-int').innerHTML = totalAchievements;
   document.getElementById('kpidRatio-int').innerHTML = kpiDeathRatio.toFixed(2);
-  document.getElementById('mightStart').value = ranges.mightStart;
-  document.getElementById('mightEnd').value = ranges.mightEnd;
-  document.getElementById('might-int').innerHTML = ranges.mightEnd - ranges.mightStart;
-  document.getElementById('fpStart').value = ranges.fpStart;
-  document.getElementById('fpEnd').value = ranges.fpEnd;
-  document.getElementById('fp-int').innerHTML = ranges.fpEnd - ranges.fpStart;
+  document.getElementById('mightStart-sm').value = ranges.mightStart;
+  document.getElementById('mightStart-md').value = ranges.mightStart;
+  document.getElementById('mightEnd-sm').value = ranges.mightEnd;
+  document.getElementById('mightEnd-md').value = ranges.mightEnd;
+  document.getElementById('might-int').value = ranges.mightEnd - ranges.mightStart;
+  document.getElementById('fpStart-sm').value = ranges.fpStart;
+  document.getElementById('fpStart-md').value = ranges.fpStart;
+  document.getElementById('fpEnd-sm').value = ranges.fpEnd;
+  document.getElementById('fpEnd-md').value = ranges.fpEnd;
+  document.getElementById('fp-int').value = ranges.fpEnd - ranges.fpStart;
 }
 
 /**
@@ -100,8 +105,8 @@ function resetValues() {
   Object.assign(ranges, defaultRanges);
   totalAchievements = 0;
   kpiDeathRatio = 0;
-
-  renderAllValues();
+  console.log(ranges);
+  renderAllValues('reset');
   storeValues();
 }
 
@@ -111,31 +116,27 @@ function resetValues() {
  */
 function rangeDifference(enteredValue, propertyChanged) {
   ranges[propertyChanged] = enteredValue;
-
-  if (propertyChanged === 'mightStart') {
-    document.getElementById('might-int').innerHTML = ranges.mightEnd - ranges.mightStart;
-  } else if (propertyChanged === 'mightEnd') {
-    document.getElementById('might-int').innerHTML = ranges.mightEnd - ranges.mightStart;
-  } else {
-    document.getElementById('fp-int').innerHTML = ranges.fpEnd - ranges.fpStart;
-  }
+  console.log((document.getElementById('might-int').value = ranges.mightEnd - ranges.mightStart));
+  console.log((document.getElementById('fp-int').value = ranges.fpEnd - ranges.fpStart));
+  document.getElementById('might-int').innerHTML = ranges.mightEnd - ranges.mightStart;
+  document.getElementById('fp-int').innerHTML = ranges.fpEnd - ranges.fpStart;
+  renderAllValues();
   storeValues();
 }
-
 /**
  * Makes the value changes to values object using parameters from processUserInput.
  * @param {number} enteredValue
  * @param {keyof values} propertyChanged
  */
-function userEnteredValue(enteredValue, propertyChanged) {
-  values[propertyChanged] = enteredValue;
+// function userEnteredValue(enteredValue, propertyChanged) {
+//   values[propertyChanged] = enteredValue;
 
-  totalAchievements = sumObjectValues(values) - values.deadCount;
+//   totalAchievements = sumObjectValues(values) - values.deadCount;
 
-  ach2deathRatio();
-  renderAllValues();
-  storeValues();
-}
+//   ach2deathRatio();
+//   renderAllValues();
+//   storeValues();
+// }
 
 /**
  * Collects parameters and passes them to callback function.
@@ -143,23 +144,25 @@ function userEnteredValue(enteredValue, propertyChanged) {
  * @param {string} id
  */
 function processUserInput(callback, id) {
+  console.log(id);
   let enteredValue = parseInt(document.getElementById(id).value, 10);
   let propertyChanged = document.getElementById(id).name;
+  console.log(propertyChanged);
   callback(enteredValue, propertyChanged);
 }
 
 /**
  * Increments respective button based on btn parameter, then increments totalAchievement if the btn was not deadCount.
- * @param {string} buttonkey
+ * @param {integer} buttonkey
  * @param {string} id
+ * @param {string} name
  */
-function buttonIncremented(buttonkey, id) {
-  values[buttonkey]++;
-  document.getElementById(id).value = values[buttonkey];
-
-  if (buttonkey !== 'deadCount') {
-    totalAchievements++;
+function buttonPress(buttonkey, id, name) {
+  values[name] += buttonkey;
+  if (name !== 'deadCount') {
+    totalAchievements += buttonkey;
   }
+  document.getElementById(id).innerHTML = values[name];
 
   ach2deathRatio();
   renderAllValues();
