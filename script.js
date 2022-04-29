@@ -101,13 +101,15 @@ function storeValues() {
  * Zeroes out the scorecard.
  */
 function resetValues() {
-  Object.assign(values, defaultValues);
-  Object.assign(ranges, defaultRanges);
-  totalAchievements = 0;
-  kpiDeathRatio = 0;
-  console.log(ranges);
-  renderAllValues('reset');
-  storeValues();
+  if (confirm('Are you sure you want to reset?')) {
+    Object.assign(values, defaultValues);
+    Object.assign(ranges, defaultRanges);
+    totalAchievements = 0;
+    kpiDeathRatio = 0;
+    console.log(ranges);
+    renderAllValues('reset');
+    storeValues();
+  }
 }
 
 /**
