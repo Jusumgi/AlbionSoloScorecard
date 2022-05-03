@@ -2,7 +2,7 @@ let date = new Date();
 const day = date.getDate();
 const month = date.getMonth()+1;
 const year = date.getFullYear().toString().substring(2);
-const today = String(day+''+month+''+year);
+const today = String(month+''+day+''+year);
 
 const defaultScorecard = {
   values: {
@@ -54,12 +54,12 @@ function renderAllValues() {
   document.getElementById('mightStart-md').value = scorecard.ranges.mightStart;
   document.getElementById('mightEnd-sm').value = scorecard.ranges.mightEnd;
   document.getElementById('mightEnd-md').value = scorecard.ranges.mightEnd;
-  document.getElementById('might-int').value = scorecard.ranges.mightEnd - scorecard.ranges.mightStart;
+  document.getElementById('might-int').innerHTML = scorecard.ranges.mightEnd - scorecard.ranges.mightStart;
   document.getElementById('fpStart-sm').value = scorecard.ranges.fpStart;
   document.getElementById('fpStart-md').value = scorecard.ranges.fpStart;
   document.getElementById('fpEnd-sm').value = scorecard.ranges.fpEnd;
   document.getElementById('fpEnd-md').value = scorecard.ranges.fpEnd;
-  document.getElementById('fp-int').value = scorecard.ranges.fpEnd - scorecard.ranges.fpStart;
+  document.getElementById('fp-int').innerHTML = scorecard.ranges.fpEnd - scorecard.ranges.fpStart;
 }
 
 /**
@@ -95,7 +95,7 @@ function resetValues() {
     Object.assign(scorecard.ranges, defaultScorecard.ranges);
     scorecard.kpi = 0;
     scorecard.kpiratio = 0;
-    
+
     renderAllValues();
     storeValues();
   }
