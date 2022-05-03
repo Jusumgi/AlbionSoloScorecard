@@ -25,33 +25,6 @@ const defaultScorecard = {
 }
 const scorecard = { ...defaultScorecard}
 
-// const LOCAL_STORAGE_KEYS = {
-//   ACHIEVEMENT: 'achievement',
-//   RANGES: 'ranges',
-//   RATIO: 'ratio',
-//   SCORECARD: 'scorecard',
-// };
-
-// const defaultValues = {
-//   bankedLoot: 0, // button
-//   deadCount: 0, // button
-//   escapedGank: 0, // button
-//   killedPlayers: 0, // button
-//   openWorldChests: 0, // button
-//   resourceNode: 0, // button
-//   upgradedMobs: 0, // button
-// };
-
-// const defaultRanges = {
-//   fpEnd: 0,
-//   fpStart: 0,
-//   mightEnd: 0,
-//   mightStart: 0,
-// };
-
-// const values = { ...defaultValues };
-// const ranges = { ...defaultRanges };
-
 /**
  * Takes an object of key:number pairs and sums its values.
  * @param {{ [key: string]: number }} obj
@@ -62,7 +35,6 @@ function sumObjectValues(obj) {
 }
 
 scorecard.kpi = sumObjectValues(scorecard.values) - scorecard.values.deadCount;
-console.log(scorecard.kpi)
 
 /**
  * Updates all elements with the current values.
@@ -94,35 +66,24 @@ function renderAllValues() {
  * fetches values from local storage.
  */
 function hydrateValues() {
-  try {
-    let storedScorecard = localStorage.getItem(LOCAL_STORAGE_KEYS.SCORECARD);
-    let storedAchievement = localStorage.getItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT);
-    let storedRatio = localStorage.getItem(LOCAL_STORAGE_KEYS.RATIO);
-    let storedRanges = localStorage.getItem(LOCAL_STORAGE_KEYS.RANGES);
-
+  //try {
+    let storedScorecard = localStorage.getItem(today);
+    
+    console.log(storedScorecard);
+    
     if (!storedScorecard) return;
-
-    Object.assign(values, JSON.parse(storedScorecard));
-    Object.assign(ranges, JSON.parse(storedRanges));
-    scorecard.kpi = JSON.parse(storedAchievement);
-    scorecard.kpiratio = JSON.parse(storedRatio);
+    Object.assign(scorecard, JSON.parse(storedScorecard));
     ach2deathRatio();
     renderAllValues();
-  } catch {}
+  //} catch {}
 }
 
 /**
  * Preserves values to local storage.
  */
 function storeValues() {
-  Object.assign(LOCAL_STORAGE_KEYS.SCORECARD, scorecard.values);
-  Object.assign(LOCAL_STORAGE_KEYS.RANGES, scorecard.ranges);
-	localStorage.setItem(today, JSON.stringify(LOCAL_STORAGE_KEYS));
-  console.log(localStorage);
-  // localStorage.setItem(LOCAL_STORAGE_KEYS.SCORECARD, JSON.stringify(values));
-  // localStorage.setItem(LOCAL_STORAGE_KEYS.RANGES, JSON.stringify(ranges));
-  // localStorage.setItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT, JSON.stringify(scorecard.kpi));
-  // localStorage.setItem(LOCAL_STORAGE_KEYS.RATIO, JSON.stringify(scorecard.kpiratio));
+	localStorage.setItem(today, JSON.stringify(scorecard));
+  console.log(localStorage)
 }
 
 /**
@@ -134,7 +95,8 @@ function resetValues() {
     Object.assign(scorecard.ranges, defaultScorecard.ranges);
     scorecard.kpi = 0;
     scorecard.kpiratio = 0;
-    renderAllValues('reset');
+    
+    renderAllValues();
     storeValues();
   }
 }
@@ -144,9 +106,7 @@ function resetValues() {
  * @param {keyof ranges} propertyChanged
  */
 function rangeDifference(enteredValue, propertyChanged) {
-  ranges[propertyChanged] = enteredValue;
-  console.log((document.getElementById('might-int').value = scorecard.ranges.mightEnd - scorecard.ranges.mightStart));
-  console.log((document.getElementById('fp-int').value = scorecard.ranges.fpEnd - scorecard.ranges.fpStart));
+  scorecard.ranges[propertyChanged] = enteredValue;
   document.getElementById('might-int').innerHTML = scorecard.ranges.mightEnd - scorecard.ranges.mightStart;
   document.getElementById('fp-int').innerHTML = scorecard.ranges.fpEnd - scorecard.ranges.fpStart;
   renderAllValues();
@@ -205,7 +165,8 @@ function ach2deathRatio() {
   scorecard.kpiratio = scorecard.kpi / 1;
   storeValues();
   if (scorecard.values.deadCount < 1) return;
-  scorecard.kpiratio = scorecard.kpi / values.deadCount;
+  scorecard.kpiratio = scorecard.kpi / scorecard.values.deadCount;
+  storeValues();
 }
 
-window.addEventListener('load', hydrateValues);
+window.addEventListener('load', hydrateValues(today));
