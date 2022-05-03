@@ -1,31 +1,56 @@
-const LOCAL_STORAGE_KEYS = {
-  ACHIEVEMENT: 'achievement',
-  RANGES: 'ranges',
-  RATIO: 'ratio',
-  SCORECARD: 'scorecard',
-};
+let date = new Date();
+const day = date.getDate();
+const month = date.getMonth()+1;
+const year = date.getFullYear().toString().substring(2);
+const today = String(day+''+month+''+year);
 
-const defaultValues = {
-  bankedLoot: 0, // button
-  deadCount: 0, // button
-  escapedGank: 0, // button
-  killedPlayers: 0, // button
-  openWorldChests: 0, // button
-  resourceNode: 0, // button
-  upgradedMobs: 0, // button
-};
+const defaultScorecard = {
+  values: {
+    bankedLoot: 0, // button
+    deadCount: 0, // button
+    escapedGank: 0, // button
+    killedPlayers: 0, // button
+    openWorldChests: 0, // button
+    resourceNode: 0, // button
+    upgradedMobs: 0, // button
+  },
+  ranges: {
+    fpEnd: 0,
+    fpStart: 0,
+    mightEnd: 0,
+    mightStart: 0,
+  },
+  kpi: 0,
+  kpiratio: 0,
+}
+const scorecard = { ...defaultScorecard}
 
-const defaultRanges = {
-  fpEnd: 0,
-  fpStart: 0,
-  mightEnd: 0,
-  mightStart: 0,
-};
+// const LOCAL_STORAGE_KEYS = {
+//   ACHIEVEMENT: 'achievement',
+//   RANGES: 'ranges',
+//   RATIO: 'ratio',
+//   SCORECARD: 'scorecard',
+// };
 
-const values = { ...defaultValues };
-const ranges = { ...defaultRanges };
+// const defaultValues = {
+//   bankedLoot: 0, // button
+//   deadCount: 0, // button
+//   escapedGank: 0, // button
+//   killedPlayers: 0, // button
+//   openWorldChests: 0, // button
+//   resourceNode: 0, // button
+//   upgradedMobs: 0, // button
+// };
 
-let kpiDeathRatio = 0;
+// const defaultRanges = {
+//   fpEnd: 0,
+//   fpStart: 0,
+//   mightEnd: 0,
+//   mightStart: 0,
+// };
+
+// const values = { ...defaultValues };
+// const ranges = { ...defaultRanges };
 
 /**
  * Takes an object of key:number pairs and sums its values.
@@ -36,34 +61,33 @@ function sumObjectValues(obj) {
   return Object.values(obj).reduce((t, v) => t + v, 0);
 }
 
-let totalAchievements = sumObjectValues(values) - values.deadCount;
-
-let range = 0;
+scorecard.kpi = sumObjectValues(scorecard.values) - scorecard.values.deadCount;
+console.log(scorecard.kpi)
 
 /**
  * Updates all elements with the current values.
  */
-function renderAllValues(a) {
-  document.getElementById('resource-int').innerHTML = values.resourceNode;
-  document.getElementById('upgradedMobs-int').innerHTML = values.upgradedMobs;
-  document.getElementById('killedPlayers-int').innerHTML = values.killedPlayers;
-  document.getElementById('bankedLoot-int').innerHTML = values.bankedLoot;
-  document.getElementById('openWorldChests-int').innerHTML = values.openWorldChests;
-  document.getElementById('escapedGank-int').innerHTML = values.escapedGank;
-  document.getElementById('deadCount-int').innerHTML = values.deadCount;
-  document.getElementById('deadCount-int-2').innerHTML = values.deadCount;
-  document.getElementById('achievements-int').innerHTML = totalAchievements;
-  document.getElementById('kpidRatio-int').innerHTML = kpiDeathRatio.toFixed(2);
-  document.getElementById('mightStart-sm').value = ranges.mightStart;
-  document.getElementById('mightStart-md').value = ranges.mightStart;
-  document.getElementById('mightEnd-sm').value = ranges.mightEnd;
-  document.getElementById('mightEnd-md').value = ranges.mightEnd;
-  document.getElementById('might-int').value = ranges.mightEnd - ranges.mightStart;
-  document.getElementById('fpStart-sm').value = ranges.fpStart;
-  document.getElementById('fpStart-md').value = ranges.fpStart;
-  document.getElementById('fpEnd-sm').value = ranges.fpEnd;
-  document.getElementById('fpEnd-md').value = ranges.fpEnd;
-  document.getElementById('fp-int').value = ranges.fpEnd - ranges.fpStart;
+function renderAllValues() {
+  document.getElementById('resource-int').innerHTML = scorecard.values.resourceNode;
+  document.getElementById('upgradedMobs-int').innerHTML = scorecard.values.upgradedMobs;
+  document.getElementById('killedPlayers-int').innerHTML = scorecard.values.killedPlayers;
+  document.getElementById('bankedLoot-int').innerHTML = scorecard.values.bankedLoot;
+  document.getElementById('openWorldChests-int').innerHTML = scorecard.values.openWorldChests;
+  document.getElementById('escapedGank-int').innerHTML = scorecard.values.escapedGank;
+  document.getElementById('deadCount-int').innerHTML = scorecard.values.deadCount;
+  document.getElementById('deadCount-int-2').innerHTML = scorecard.values.deadCount;
+  document.getElementById('achievements-int').innerHTML = scorecard.kpi;
+  document.getElementById('kpidRatio-int').innerHTML = scorecard.kpiratio.toFixed(2);
+  document.getElementById('mightStart-sm').value = scorecard.ranges.mightStart;
+  document.getElementById('mightStart-md').value = scorecard.ranges.mightStart;
+  document.getElementById('mightEnd-sm').value = scorecard.ranges.mightEnd;
+  document.getElementById('mightEnd-md').value = scorecard.ranges.mightEnd;
+  document.getElementById('might-int').value = scorecard.ranges.mightEnd - scorecard.ranges.mightStart;
+  document.getElementById('fpStart-sm').value = scorecard.ranges.fpStart;
+  document.getElementById('fpStart-md').value = scorecard.ranges.fpStart;
+  document.getElementById('fpEnd-sm').value = scorecard.ranges.fpEnd;
+  document.getElementById('fpEnd-md').value = scorecard.ranges.fpEnd;
+  document.getElementById('fp-int').value = scorecard.ranges.fpEnd - scorecard.ranges.fpStart;
 }
 
 /**
@@ -80,8 +104,8 @@ function hydrateValues() {
 
     Object.assign(values, JSON.parse(storedScorecard));
     Object.assign(ranges, JSON.parse(storedRanges));
-    totalAchievements = JSON.parse(storedAchievement);
-    kpiDeathRatio = JSON.parse(storedRatio);
+    scorecard.kpi = JSON.parse(storedAchievement);
+    scorecard.kpiratio = JSON.parse(storedRatio);
     ach2deathRatio();
     renderAllValues();
   } catch {}
@@ -91,10 +115,14 @@ function hydrateValues() {
  * Preserves values to local storage.
  */
 function storeValues() {
-  localStorage.setItem(LOCAL_STORAGE_KEYS.SCORECARD, JSON.stringify(values));
-  localStorage.setItem(LOCAL_STORAGE_KEYS.RANGES, JSON.stringify(ranges));
-  localStorage.setItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT, JSON.stringify(totalAchievements));
-  localStorage.setItem(LOCAL_STORAGE_KEYS.RATIO, JSON.stringify(kpiDeathRatio));
+  Object.assign(LOCAL_STORAGE_KEYS.SCORECARD, scorecard.values);
+  Object.assign(LOCAL_STORAGE_KEYS.RANGES, scorecard.ranges);
+	localStorage.setItem(today, JSON.stringify(LOCAL_STORAGE_KEYS));
+  console.log(localStorage);
+  // localStorage.setItem(LOCAL_STORAGE_KEYS.SCORECARD, JSON.stringify(values));
+  // localStorage.setItem(LOCAL_STORAGE_KEYS.RANGES, JSON.stringify(ranges));
+  // localStorage.setItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT, JSON.stringify(scorecard.kpi));
+  // localStorage.setItem(LOCAL_STORAGE_KEYS.RATIO, JSON.stringify(scorecard.kpiratio));
 }
 
 /**
@@ -102,11 +130,10 @@ function storeValues() {
  */
 function resetValues() {
   if (confirm('Are you sure you want to reset?')) {
-    Object.assign(values, defaultValues);
-    Object.assign(ranges, defaultRanges);
-    totalAchievements = 0;
-    kpiDeathRatio = 0;
-    console.log(ranges);
+    Object.assign(scorecard.values, defaultScorecard.values);
+    Object.assign(scorecard.ranges, defaultScorecard.ranges);
+    scorecard.kpi = 0;
+    scorecard.kpiratio = 0;
     renderAllValues('reset');
     storeValues();
   }
@@ -118,10 +145,10 @@ function resetValues() {
  */
 function rangeDifference(enteredValue, propertyChanged) {
   ranges[propertyChanged] = enteredValue;
-  console.log((document.getElementById('might-int').value = ranges.mightEnd - ranges.mightStart));
-  console.log((document.getElementById('fp-int').value = ranges.fpEnd - ranges.fpStart));
-  document.getElementById('might-int').innerHTML = ranges.mightEnd - ranges.mightStart;
-  document.getElementById('fp-int').innerHTML = ranges.fpEnd - ranges.fpStart;
+  console.log((document.getElementById('might-int').value = scorecard.ranges.mightEnd - scorecard.ranges.mightStart));
+  console.log((document.getElementById('fp-int').value = scorecard.ranges.fpEnd - scorecard.ranges.fpStart));
+  document.getElementById('might-int').innerHTML = scorecard.ranges.mightEnd - scorecard.ranges.mightStart;
+  document.getElementById('fp-int').innerHTML = scorecard.ranges.fpEnd - scorecard.ranges.fpStart;
   renderAllValues();
   storeValues();
 }
@@ -133,7 +160,7 @@ function rangeDifference(enteredValue, propertyChanged) {
 // function userEnteredValue(enteredValue, propertyChanged) {
 //   values[propertyChanged] = enteredValue;
 
-//   totalAchievements = sumObjectValues(values) - values.deadCount;
+//   scorecard.kpi = sumObjectValues(values) - values.deadCount;
 
 //   ach2deathRatio();
 //   renderAllValues();
@@ -160,11 +187,11 @@ function processUserInput(callback, id) {
  * @param {string} name
  */
 function buttonPress(buttonkey, id, name) {
-  values[name] += buttonkey;
+  scorecard.values[name] += buttonkey;
   if (name !== 'deadCount') {
-    totalAchievements += buttonkey;
+    scorecard.kpi += buttonkey;
   }
-  document.getElementById(id).innerHTML = values[name];
+  document.getElementById(id).innerHTML = scorecard.values[name];
 
   ach2deathRatio();
   renderAllValues();
@@ -175,15 +202,10 @@ function buttonPress(buttonkey, id, name) {
  * Updates the Total KPI and Ratio elements.
  */
 function ach2deathRatio() {
-  kpiDeathRatio = totalAchievements / 1;
+  scorecard.kpiratio = scorecard.kpi / 1;
   storeValues();
-  if (values.deadCount < 1) return;
-  kpiDeathRatio = totalAchievements / values.deadCount;
+  if (scorecard.values.deadCount < 1) return;
+  scorecard.kpiratio = scorecard.kpi / values.deadCount;
 }
-
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl);
-});
 
 window.addEventListener('load', hydrateValues);
