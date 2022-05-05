@@ -169,4 +169,4 @@ function ach2deathRatio() {
   storeValues();
 }
 
-window.addEventListener('load', hydrateValues(today));
+window.addEventListener('load', hydrateValues());
