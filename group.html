@@ -35,6 +35,27 @@
         </div>
         <div class="row pt-3 albion-darkred">
             <div class="col-md-4 col-8 d-flex flex-column">
+                <div class="text-decoration-underline text-center">Arena</div>
+                <div class="d-flex p-1">
+                    <div class="col-4 text-center albion-bold" name="arenaWin" id="arenaWin-int">0</div>
+                    <button class="col btn albion-bold albion-bright" onclick="buttonPress(+1, 'arenaWin-int', 'arenaWin')">Win</button>
+                    <button class="col btn albion-bold albion-red" onclick="buttonPress(+1, 'arenaLoss-int', 'arenaLoss')">Loss</button>
+                    <div class="col-4 text-center albion-bold" name="arenaLoss" id="arenaLoss-int">0</div>
+                </div>
+                <div class="text-decoration-underline text-center">Crystal Arena</div>
+                <div class="d-flex p-1">
+                    <div class="col-4 text-center albion-bold" name="crystalArenaWin" id="crystalArenaWin-int">0</div>
+                    <button class="col btn albion-bold albion-bright" onclick="buttonPress(+1, 'crystalArenaWin-int', 'crystalArenaWin')">Win</button>
+                    <button class="col btn albion-bold albion-red" onclick="buttonPress(+1, 'crystalArenaLoss-int', 'crystalArenaLoss')">Loss</button>
+                    <div class="col-4 text-center albion-bold" name="crystalArenaLoss" id="crystalArenaLoss-int">0</div>
+                </div>
+                <div class="text-decoration-underline text-center">Crystal League</div>
+                <div class="d-flex p-1">
+                    <div class="col-4 text-center albion-bold" name="crystalLeagueWin" id="crystalLeagueWin-int">0</div>
+                    <button class="col btn albion-bold albion-bright" onclick="buttonPress(+1, 'crystalLeagueWin-int', 'crystalLeagueWin')">Win</button>
+                    <button class="col btn albion-bold albion-red" onclick="buttonPress(+1, 'crystalLeagueLoss-int', 'crystalLeagueLoss')">Loss</button>
+                    <div class="col-4 text-center albion-bold" name="crystalLeagueLoss" id="crystalLeagueLoss-int">0</div>
+                </div>
                 <div class="text-decoration-underline text-center">Power Cores Secured</div>
                 <div class="p-1 d-flex">
                     <button class="col btn albion-bold albion-bright" onclick="buttonPress(+5, 'coresSecured-int', 'coresSecured')">+5</button>
@@ -66,28 +87,6 @@
                     <div class="col-4 text-center albion-bold" name="crystalSpiders" id="crystalSpiders-int">0</div>
                     <button class="col btn albion-bold albion-gold pl" onclick="buttonPress(-1, 'crystalSpiders-int', 'crystalSpiders')">-1</button>
                     <button class="col btn albion-bold albion-bright" onclick="buttonPress(-5, 'crystalSpiders-int', 'crystalSpiders')">-5</button>
-                </div>
-                <div class="text-decoration-underline text-center">Arena</div>
-                <div class="d-flex p-1">
-                    <div class="col-4 text-center albion-bold" name="arenaWin" id="arenaWin-int">0</div>
-                    <button class="col btn albion-bold albion-bright" onclick="buttonPress(+1, 'arenaWin-int', 'arenaWin')">Win</button>
-                    <button class="col btn albion-bold albion-red" onclick="buttonPress(+1, 'arenaLoss-int', 'arenaLoss')">Loss</button>
-                    <div class="col-4 text-center albion-bold" name="arenaLoss" id="arenaLoss-int">0</div>
-                </div>
-                <div class="text-decoration-underline text-center">Crystal Arena</div>
-                <div class="d-flex p-1">
-                    <div class="col-4 text-center albion-bold" name="crystalArenaWin" id="crystalArenaWin-int">0</div>
-                    <button class="col btn albion-bold albion-bright" onclick="buttonPress(+1, 'crystalArenaWin-int', 'crystalArenaWin')">Win</button>
-                    <button class="col btn albion-bold albion-red" onclick="buttonPress(+1, 'crystalArenaLoss-int', 'crystalArenaLoss')">Loss</button>
-                    <div class="col-4 text-center albion-bold" name="crystalArenaLoss" id="crystalArenaLoss-int">0</div>
-                </div>
-                <div class="text-decoration-underline text-center">Crystal League</div>
-                <div class="d-flex p-1">
-                    <div class="col-4 text-center albion-bold" name="crystalLeagueWin" id="crystalLeagueWin-int">0</div>
-                    <button class="col btn albion-bold albion-bright" onclick="buttonPress(+1, 'crystalLeagueWin-int', 'crystalLeagueWin')">Win</button>
-                    <button class="col btn albion-bold albion-red" onclick="buttonPress(+1, 'crystalLeagueLoss-int', 'crystalLeagueLoss')">Loss</button>
-                    <div class="col-4 text-center albion-bold" name="crystalLeagueLoss" id="crystalLeagueLoss-int">0</div>
-
                 </div>
                 <div class="d-md-none text-center">PvE Combat Fame</div>
                 <div class="d-flex d-md-none justify-content-evenly">
