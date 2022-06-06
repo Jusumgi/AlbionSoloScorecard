@@ -1,8 +1,6 @@
 const LOCAL_STORAGE_KEYS = {
-  ACHIEVEMENT: 'achievement',
-  RANGES: 'ranges',
-  RATIO: 'ratio',
-  SCORECARD: 'scorecard',
+  SOLO: { ACHIEVEMENT: 'achievement', RANGES: 'ranges', RATIO: 'ratio', SCORECARD: 'scorecard' },
+  GROUP: { ACHIEVEMENT: 'achievement', RANGES: 'ranges', RATIO: 'ratio', SCORECARD: 'scorecard' },
 };
 
 const defaultValues = {
@@ -71,11 +69,10 @@ function renderAllValues(a) {
  */
 function hydrateValues() {
   try {
-    let storedScorecard = localStorage.getItem(LOCAL_STORAGE_KEYS.SCORECARD);
-    let storedAchievement = localStorage.getItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT);
-    let storedRatio = localStorage.getItem(LOCAL_STORAGE_KEYS.RATIO);
-    let storedRanges = localStorage.getItem(LOCAL_STORAGE_KEYS.RANGES);
-
+    let storedScorecard = localStorage.getItem(LOCAL_STORAGE_KEYS.SOLO.SCORECARD);
+    let storedAchievement = localStorage.getItem(LOCAL_STORAGE_KEYS.SOLO.ACHIEVEMENT);
+    let storedRatio = localStorage.getItem(LOCAL_STORAGE_KEYS.SOLO.RATIO);
+    let storedRanges = localStorage.getItem(LOCAL_STORAGE_KEYS.SOLO.RANGES);
     if (!storedScorecard) return;
 
     Object.assign(values, JSON.parse(storedScorecard));
@@ -91,10 +88,10 @@ function hydrateValues() {
  * Preserves values to local storage.
  */
 function storeValues() {
-  localStorage.setItem(LOCAL_STORAGE_KEYS.SCORECARD, JSON.stringify(values));
-  localStorage.setItem(LOCAL_STORAGE_KEYS.RANGES, JSON.stringify(ranges));
-  localStorage.setItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT, JSON.stringify(totalAchievements));
-  localStorage.setItem(LOCAL_STORAGE_KEYS.RATIO, JSON.stringify(kpiDeathRatio));
+  localStorage.setItem(LOCAL_STORAGE_KEYS.SOLO.SCORECARD, JSON.stringify(values));
+  localStorage.setItem(LOCAL_STORAGE_KEYS.SOLO.RANGES, JSON.stringify(ranges));
+  localStorage.setItem(LOCAL_STORAGE_KEYS.SOLO.ACHIEVEMENT, JSON.stringify(totalAchievements));
+  localStorage.setItem(LOCAL_STORAGE_KEYS.SOLO.RATIO, JSON.stringify(kpiDeathRatio));
 }
 
 /**
@@ -118,8 +115,6 @@ function resetValues() {
  */
 function rangeDifference(enteredValue, propertyChanged) {
   ranges[propertyChanged] = enteredValue;
-  console.log((document.getElementById('might-int').value = ranges.mightEnd - ranges.mightStart));
-  console.log((document.getElementById('fp-int').value = ranges.fpEnd - ranges.fpStart));
   document.getElementById('might-int').innerHTML = ranges.mightEnd - ranges.mightStart;
   document.getElementById('fp-int').innerHTML = ranges.fpEnd - ranges.fpStart;
   renderAllValues();

@@ -1,8 +1,6 @@
 const LOCAL_STORAGE_KEYS = {
-  ACHIEVEMENT: 'achievement',
-  RANGES: 'ranges',
-  RATIO: 'ratio',
-  SCORECARD: 'scorecard',
+  SOLO: { ACHIEVEMENT: 'achievement', RANGES: 'ranges', RATIO: 'ratio', SCORECARD: 'scorecard' },
+  GROUP: { RANGES: 'ranges', RATIO: 'ratio', SCORECARD: 'scorecard' },
 };
 
 const defaultValues = {
@@ -24,13 +22,15 @@ const defaultRanges = {
   pveCombatFameStart: 0,
   pveCombatFameEnd: 0,
 };
+const defaultRatios = {
+  arenaWL: 0,
+  crystalArenaWL: 0,
+  crystalLeagueWL: 0,
+};
 
 const values = { ...defaultValues };
 const ranges = { ...defaultRanges };
-
-let arenaWL = 0;
-let crystalArenaWL = 0;
-let crystalLeagueWL = 0;
+const ratios = { ...defaultRatios };
 
 /**
  * Takes an object of key:number pairs and sums its values.
@@ -56,51 +56,48 @@ function renderAllValues(a) {
   document.getElementById('crystalArenaWin-int').innerHTML = values.crystalArenaWin;
   document.getElementById('crystalLeagueLoss-int').innerHTML = values.crystalLeagueLoss;
   document.getElementById('crystalLeagueWin-int').innerHTML = values.crystalLeagueWin;
-  document.getElementById('arenaWL-int').innerHTML = arenaWL.toFixed(2);
-  document.getElementById('crystalArenaWL-int').innerHTML = crystalArenaWL.toFixed(2);
-  document.getElementById('crystalLeagueWL-int').innerHTML = crystalLeagueWL.toFixed(2);
+  document.getElementById('arenaWL-int').innerHTML = ratios.arenaWL.toFixed(2);
+  document.getElementById('crystalArenaWL-int').innerHTML = ratios.crystalArenaWL.toFixed(2);
+  document.getElementById('crystalLeagueWL-int').innerHTML = ratios.crystalLeagueWL.toFixed(2);
   document.getElementById('pveCombatFameEnd-sm').value = ranges.pveCombatFameEnd;
   document.getElementById('pveCombatFameEnd-md').value = ranges.pveCombatFameEnd;
   document.getElementById('pveCombatFameStart-sm').value = ranges.pveCombatFameStart;
   document.getElementById('pveCombatFameStart-md').value = ranges.pveCombatFameStart;
-  document.getElementById('pveCombatFame-int').value = ranges.pveCombatFameEnd - ranges.pveCombatFameStart;
+  document.getElementById('pveCombatFame-int').innerHTML = ranges.pveCombatFameEnd - ranges.pveCombatFameStart;
   document.getElementById('gatheringFameStart-sm').value = ranges.gatheringFameStart;
   document.getElementById('gatheringFameStart-md').value = ranges.gatheringFameStart;
   document.getElementById('gatheringFameEnd-sm').value = ranges.gatheringFameEnd;
   document.getElementById('gatheringFameEnd-md').value = ranges.gatheringFameEnd;
-  document.getElementById('gatheringFame-int').value = ranges.gatheringFameEnd - ranges.gatheringFameStart;
+  document.getElementById('gatheringFame-int').innerHTML = ranges.gatheringFameEnd - ranges.gatheringFameStart;
 }
 
 /**
  * fetches values from local storage.
  */
-// function hydrateValues() {
-//   try {
-//     let storedScorecard = localStorage.getItem(LOCAL_STORAGE_KEYS.SCORECARD);
-//     let storedAchievement = localStorage.getItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT);
-//     let storedRatio = localStorage.getItem(LOCAL_STORAGE_KEYS.RATIO);
-//     let storedRanges = localStorage.getItem(LOCAL_STORAGE_KEYS.RANGES);
+function hydrateValues() {
+  try {
+    let storedScorecard = localStorage.getItem(LOCAL_STORAGE_KEYS.GROUP.SCORECARD);
+    let storedRatio = localStorage.getItem(LOCAL_STORAGE_KEYS.GROUP.RATIO);
+    let storedRanges = localStorage.getItem(LOCAL_STORAGE_KEYS.GROUP.RANGES);
 
-//     if (!storedScorecard) return;
+    if (!storedScorecard) return;
 
-//     Object.assign(values, JSON.parse(storedScorecard));
-//     Object.assign(ranges, JSON.parse(storedRanges));
-//     totalAchievements = JSON.parse(storedAchievement);
-//     kpiDeathRatio = JSON.parse(storedRatio);
-//     ach2deathRatio();
-//     renderAllValues();
-//   } catch {}
-// }
+    Object.assign(values, JSON.parse(storedScorecard));
+    Object.assign(ranges, JSON.parse(storedRanges));
+    Object.assign(ratios, JSON.parse(storedRatio));
+    calculateRatios();
+    renderAllValues();
+  } catch {}
+}
 
 /**
  * Preserves values to local storage.
  */
-// function storeValues() {
-//   localStorage.setItem(LOCAL_STORAGE_KEYS.SCORECARD, JSON.stringify(values));
-//   localStorage.setItem(LOCAL_STORAGE_KEYS.RANGES, JSON.stringify(ranges));
-//   localStorage.setItem(LOCAL_STORAGE_KEYS.ACHIEVEMENT, JSON.stringify(totalAchievements));
-//   localStorage.setItem(LOCAL_STORAGE_KEYS.RATIO, JSON.stringify(kpiDeathRatio));
-// }
+function storeValues() {
+  localStorage.setItem(LOCAL_STORAGE_KEYS.GROUP.SCORECARD, JSON.stringify(values));
+  localStorage.setItem(LOCAL_STORAGE_KEYS.GROUP.RANGES, JSON.stringify(ranges));
+  localStorage.setItem(LOCAL_STORAGE_KEYS.GROUP.RATIO, JSON.stringify(ratios));
+}
 
 /**
  * Zeroes out the scorecard.
@@ -138,7 +135,7 @@ function rangeDifference(enteredValue, propertyChanged) {
 
 //   totalAchievements = sumObjectValues(values) - values.deadCount;
 
-//   ach2deathRatio();
+//   calculateRatios();
 //   renderAllValues();
 //   storeValues();
 // }
@@ -167,31 +164,31 @@ function buttonPress(buttonkey, id, name) {
 
   document.getElementById(id).innerHTML = values[name];
 
-  ach2deathRatio();
+  calculateRatios();
   renderAllValues();
-  //storeValues();
+  storeValues();
 }
 
 /**
  * Updates the Total KPI and Ratio elements.
  */
-function ach2deathRatio() {
-  arenaWL = values.arenaWin / 1;
-  crystalArenaWL = values.crystalArenaWin / 1;
-  crystalLeagueWL = values.crystalLeagueWin / 1;
+function calculateRatios() {
+  ratios.arenaWL = values.arenaWin / 1;
+  ratios.crystalArenaWL = values.crystalArenaWin / 1;
+  ratios.crystalLeagueWL = values.crystalLeagueWin / 1;
 
   if (values.arenaLoss < 1) return;
-  arenaWL = values.arenaWin / values.arenaLoss;
+  ratios.arenaWL = values.arenaWin / values.arenaLoss;
   if (values.crystalArenaLoss < 1) return;
-  crystalArenaWL = values.crystalArenaWin / values.crystalArenaLoss;
+  ratios.crystalArenaWL = values.crystalArenaWin / values.crystalArenaLoss;
   if (values.crystalLeagueLoss < 1) return;
-  crystalLeagueWL = values.crystalLeagueWin / values.crystalLeagueLoss;
+  ratios.crystalLeagueWL = values.crystalLeagueWin / values.crystalLeagueLoss;
 
-  // storeValues();
+  storeValues();
 }
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 
-// window.addEventListener('load', hydrateValues);
+window.addEventListener('load', hydrateValues);
