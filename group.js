@@ -21,6 +21,8 @@ const defaultRanges = {
   gatheringFameStart: 0,
   pveCombatFameStart: 0,
   pveCombatFameEnd: 0,
+  craftingFameStart: 0,
+  craftingFameEnd: 0,
 };
 const defaultRatios = {
   arenaWL: 0,
@@ -59,16 +61,21 @@ function renderAllValues(a) {
   document.getElementById('arenaWL-int').innerHTML = ratios.arenaWL.toFixed(2);
   document.getElementById('crystalArenaWL-int').innerHTML = ratios.crystalArenaWL.toFixed(2);
   document.getElementById('crystalLeagueWL-int').innerHTML = ratios.crystalLeagueWL.toFixed(2);
-  document.getElementById('pveCombatFameEnd-sm').value = ranges.pveCombatFameEnd;
-  document.getElementById('pveCombatFameEnd-md').value = ranges.pveCombatFameEnd;
   document.getElementById('pveCombatFameStart-sm').value = ranges.pveCombatFameStart;
   document.getElementById('pveCombatFameStart-md').value = ranges.pveCombatFameStart;
+  document.getElementById('pveCombatFameEnd-sm').value = ranges.pveCombatFameEnd;
+  document.getElementById('pveCombatFameEnd-md').value = ranges.pveCombatFameEnd;
   document.getElementById('pveCombatFame-int').innerHTML = ranges.pveCombatFameEnd - ranges.pveCombatFameStart;
   document.getElementById('gatheringFameStart-sm').value = ranges.gatheringFameStart;
   document.getElementById('gatheringFameStart-md').value = ranges.gatheringFameStart;
   document.getElementById('gatheringFameEnd-sm').value = ranges.gatheringFameEnd;
   document.getElementById('gatheringFameEnd-md').value = ranges.gatheringFameEnd;
   document.getElementById('gatheringFame-int').innerHTML = ranges.gatheringFameEnd - ranges.gatheringFameStart;
+  document.getElementById('craftingFameStart-sm').value = ranges.craftingFameStart;
+  document.getElementById('craftingFameStart-md').value = ranges.craftingFameStart;
+  document.getElementById('craftingFameEnd-sm').value = ranges.craftingFameEnd;
+  document.getElementById('craftingFameEnd-md').value = ranges.craftingFameEnd;
+  document.getElementById('craftingFame-int').innerHTML = ranges.craftingFameEnd - ranges.craftingFameStart;
 }
 
 /**
@@ -122,6 +129,7 @@ function rangeDifference(enteredValue, propertyChanged) {
   ranges[propertyChanged] = enteredValue;
   document.getElementById('pveCombatFame-int').innerHTML = ranges.pveCombatFameEnd - ranges.pveCombatFameStart;
   document.getElementById('gatheringFame-int').innerHTML = ranges.gatheringFameEnd - ranges.gatheringFameStart;
+  document.getElementById('craftingFame-int').innerHTML = ranges.craftingFameEnd - ranges.craftingFameStart;
   renderAllValues();
   storeValues();
 }

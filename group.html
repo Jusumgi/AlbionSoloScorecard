@@ -102,6 +102,13 @@
                     <div class="col-2 text-center albion-bold">-</div>
                     <div class="col"><input class="form-control albion-gold" name="gatheringFameEnd" id="gatheringFameEnd-sm" type="number" size="4" value="0" onchange="processUserInput(rangeDifference, 'gatheringFameEnd-sm')" /></div>
                 </div>
+                <div class="d-md-none text-center">Crafting Fame</div>
+                <div class="d-flex d-md-none justify-content-evenly">
+                    <div class="col"><input class="form-control albion-gold" name="craftingFameStart" id="craftingFameStart-sm" type="number" size="4" value="0" onchange="processUserInput(rangeDifference, 'craftingFameStart-sm')" />
+                    </div>
+                    <div class="col-2 text-center albion-bold">-</div>
+                    <div class="col"><input class="form-control albion-gold" name="craftingFameEnd" id="craftingFameEnd-sm" type="number" size="4" value="0" onchange="processUserInput(rangeDifference, 'craftingFameEnd-sm')" /></div>
+                </div>
             </div>
             <div class="col-md-4 d-none d-md-block d-md-flex flex-md-column justify-content-evenly text-center">
                 <div class="">PvE Combat Fame</div>
@@ -118,6 +125,13 @@
                     <div class="col-2 text-center albion-bold">-</div>
                     <div class="col"><input class="form-control albion-gold" name="gatheringFameEnd" id="gatheringFameEnd-md" type="number" size="4" value="0" onchange="processUserInput(rangeDifference, 'gatheringFameEnd-md')" /></div>
                 </div>
+                <div class="">Crafting Fame</div>
+                <div class="d-flex justify-content-evenly">
+                    <div class="col"><input class="form-control albion-gold" name="craftingFameStart" id="craftingFameStart-md" type="number" size="4" value="0" onchange="processUserInput(rangeDifference, 'craftingFameStart-md')" />
+                    </div>
+                    <div class="col-2 text-center albion-bold">-</div>
+                    <div class="col"><input class="form-control albion-gold" name="craftingFameEnd" id="craftingFameEnd-md" type="number" size="4" value="0" onchange="processUserInput(rangeDifference, 'craftingFameEnd-md')" /></div>
+                </div>
             </div>
             <div class="col-md-4 col-4 d-flex flex-column justify-content-evenly text-center">
                 <div class="text-decoration-underline" id="arenaWL">Arena W/L </div>
@@ -130,6 +144,8 @@
                 <div class="albion-bold" id="pveCombatFame-int">0</div>
                 <div class="text-decoration-underline" id="gatheringFame-text">Gathering Fame Gained</div>
                 <div class="albion-bold" id="gatheringFame-int">0</div>
+                <div class="text-decoration-underline" id="craftingFame-text">Crafting Fame Gained</div>
+                <div class="albion-bold" id="craftingFame-int">0</div>
                 <button class="btn albion-grey align-self-center" onclick="resetValues()">RESET</button>
             </div>
             <div class="col">
